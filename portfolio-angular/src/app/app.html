@@ -1,12 +1,47 @@
-<mat-toolbar color="primary">
-  <span>Meu Portfólio</span>
+<!-- Barra Superior Fixa com Links de Navegação -->
+<mat-toolbar class="top-navbar">
+  <button mat-icon-button (click)="sidenav.toggle()" class="menu-toggle-btn">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="brand-title">Meu Portfólio</span>
+  
   <span class="espacador"></span>
-  <a mat-button routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">inicio</a>
-  <a mat-button routerLink="/sobre" routerLinkActive="ativo">Sobre</a>
-  <a mat-button routerLink="/projetos" routerLinkActive="ativo">Projetos</a>
-  <a mat-button routerLink="/contato" routerLinkActive="ativo">Contato</a>
+  
+  <!-- Navegação de Topo -->
+  <div class="top-nav-links">
+    <a mat-button routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a mat-button routerLink="/sobre" routerLinkActive="ativo">Sobre</a>
+    <a mat-button routerLink="/projetos" routerLinkActive="ativo">Projetos</a>
+    <a mat-button routerLink="/contato" routerLinkActive="ativo">Contato</a>
+  </div>
 </mat-toolbar>
 
-<main style="padding: 24px;">
-  <router-outlet></router-outlet>
-</main>
+<!-- Container do Menu Lateral e Conteúdo -->
+<mat-sidenav-container class="sidenav-container">
+  
+  <!-- Menu Lateral (Sidenav) também com Links -->
+  <mat-sidenav #sidenav mode="side" opened class="sidebar">
+    <nav class="sidebar-nav">
+      <a mat-button routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>home</mat-icon> Home
+      </a>
+      <a mat-button routerLink="/sobre" routerLinkActive="ativo">
+        <mat-icon>person</mat-icon> Sobre
+      </a>
+      <a mat-button routerLink="/projetos" routerLinkActive="ativo">
+        <mat-icon>folder</mat-icon> Projetos
+      </a>
+      <a mat-button routerLink="/contato" routerLinkActive="ativo">
+        <mat-icon>mail</mat-icon> Contato
+      </a>
+    </nav>
+  </mat-sidenav>
+
+  <!-- Área do Conteúdo Principal -->
+  <mat-sidenav-content class="main-content">
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

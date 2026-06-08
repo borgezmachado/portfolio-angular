@@ -1,0 +1,67 @@
+mat-card {
+  max-width: 520px; /* Pouco mais compacto por conter menos texto */
+  margin: 60px auto 0 auto;
+  padding: 32px 24px;
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  border: 1px solid #e5e5e5 !important;
+  box-shadow: none !important;
+}
+
+mat-card-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #1a1a1a;
+  margin-bottom: 6px !important;
+}
+
+mat-card-subtitle {
+  font-size: 0.9rem !important;
+  color: #707070 !important;
+  margin-bottom: 20px !important;
+}
+
+.contact-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #404040;
+  margin-bottom: 24px;
+}
+
+/* Alinhamento dos botões de redes sociais */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-links a.contact-btn {
+  width: 100%;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  color: #444444 !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 6px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efeito sutil hover nos botões de contato */
+.contact-links a.contact-btn:hover {
+  background-color: #fafafa !important;
+  border-color: #1a1a1a !important;
+  color: #1a1a1a !important;
+}
+
+.contact-links mat-icon {
+  color: #666666;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}

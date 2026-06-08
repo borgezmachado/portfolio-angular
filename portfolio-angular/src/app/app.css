@@ -1,60 +1,87 @@
-.portfolio-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
+/* Barra Superior Minimalista */
+.top-navbar {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+  border-bottom: 1px solid #e5e5e5;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 0 16px !important;
 }
 
-.portfolio-header {
-  text-align: center;
-  border-bottom: 2px solid #673ab7; /* Cor roxa padrão do Angular/Material */
-  padding-bottom: 20px;
-  margin-bottom: 30px;
-}
-
-.portfolio-header h1 {
-  font-size: 2.5rem;
-  color: #673ab7;
-  margin-bottom: 5px;
-}
-
-.tagline {
+.brand-title {
   font-size: 1.1rem;
-  color: #666;
-  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-left: 8px;
 }
 
-section {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border-left: 5px solid #673ab7;
+.menu-toggle-btn {
+  color: #555555 !important;
 }
 
-.interests-section {
-  border-left-color: #2196f3; /* Azul para destacar a seção de vôlei */
+/* Container principal abaixo da navbar */
+.sidenav-container {
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+  background-color: #fafafa;
 }
 
-h2 {
-  margin-top: 0;
-  color: #222;
+/* Customização da Barra Lateral */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff !important;
+  border-right: 1px solid #e5e5e5 !important;
 }
 
-strong {
-  color: #673ab7;
+/* Links em formato de lista vertical */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  gap: 4px;
 }
 
-.interests-section strong {
-  color: #2196f3;
+.sidebar-nav a.mat-button {
+  width: 100%;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  color: #555555 !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  padding: 20px 16px !important;
+  border-radius: 6px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.portfolio-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #888;
+.sidebar-nav mat-icon {
+  color: #777777;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Destaque do Link Ativo (routerLinkActive) */
+.sidebar-nav a.mat-button.ativo {
+  background-color: #f5f5f5 !important;
+  color: #1a1a1a !important;
+  font-weight: 600 !important;
+}
+
+.sidebar-nav a.mat-button.ativo mat-icon {
+  color: #1a1a1a;
+}
+
+/* Área de exibição das páginas */
+.main-content {
+  background-color: #fafafa !important;
+  padding: 40px 24px;
 }
 .espacador { flex: 1 1 auto; }
