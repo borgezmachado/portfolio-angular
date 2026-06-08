@@ -1,0 +1,60 @@
+.portfolio-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.portfolio-header {
+  text-align: center;
+  border-bottom: 2px solid #673ab7; /* Cor roxa padrão do Angular/Material */
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.portfolio-header h1 {
+  font-size: 2.5rem;
+  color: #673ab7;
+  margin-bottom: 5px;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #666;
+  font-style: italic;
+}
+
+section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 5px solid #673ab7;
+}
+
+.interests-section {
+  border-left-color: #2196f3; /* Azul para destacar a seção de vôlei */
+}
+
+h2 {
+  margin-top: 0;
+  color: #222;
+}
+
+strong {
+  color: #673ab7;
+}
+
+.interests-section strong {
+  color: #2196f3;
+}
+
+.portfolio-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #888;
+}
+.espacador { flex: 1 1 auto; }
