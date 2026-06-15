@@ -1,50 +1,104 @@
-mat-card {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 32px;
-  border-radius: 16px !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+/* Card Principal de Boas-Vindas */
+.welcome-card {
+  max-width: 800px; /* Expandido para dar mais presença */
+  margin: 50px auto 32px auto;
+  padding: 48px 40px; /* Bastante respiro interno */
+  background: #ffffff !important;
+  border-radius: 16px !important; /* Bordas mais suaves e modernas */
+  border: 1px solid #eef0f2 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important; /* Sombra extremamente sutil e elegante */
+  text-align: center;
 }
 
-mat-card-title {
-  font-size: 1.8rem !important;
+.welcome-card mat-card-title {
+  font-size: 2.2rem !important; /* Título grande e impactante */
   font-weight: 700 !important;
-  color: #222222;
-  position: relative;
-  padding-bottom: 8px;
+  color: #111111;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px !important;
 }
 
-/* Linha decorativa abaixo do título */
-mat-card-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background-color: #3f51b5; /* Cor padrão 'primary' do Material (Indigo) */
-  border-radius: 2px;
-}
-
-mat-card-subtitle {
-  font-size: 1rem !important;
+.welcome-card mat-card-subtitle {
+  font-size: 1.1rem !important; /* Subtítulo mais nítido */
+  color: #626d7a !important;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 12px !important;
-  margin-bottom: 28px !important;
+  margin-bottom: 32px !important;
 }
 
-mat-card-content {
+.welcome-card mat-card-content p {
+  font-size: 1.2rem; /* Leitura confortável e imponente */
+  line-height: 1.7;
+  color: #333d47;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Container que organiza as métricas abaixo do card */
+.metrics-container {
+  max-width: 800px; /* Alinhado perfeitamente com o card de cima */
+  margin: 0 auto 50px auto;
+  display: grid; /* Mudamos para Grid para colocar os blocos lado a lado em telas grandes */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Blocos de Métrica Individuais */
+.metric-box {
+  background-color: #ffffff;
+  border: 1px solid #eef0f2;
+  border-radius: 12px;
+  padding: 24px;
   display: flex;
-  flex-direction: column;
-  gap: 20px; /* Espaçamento elegante entre os parágrafos */
+  flex-direction: column; /* Organização vertical fica mais robusta */
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-mat-card-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #3d3d3d;
+/* Efeito sutil de elevação ao passar o mouse */
+.metric-box:hover {
+  transform: translateY(-4px);
+  border-color: #111111;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Ícones das Métricas (Maiores e destacados) */
+.metric-box mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* Cores dos ícones com fundos muito suaves (estilo UI moderna) */
+.icon-sport { 
+  color: #0076ff; 
+  background-color: #f0f7ff;
+}
+.icon-code { 
+  color: #00b01e; 
+  background-color: #f0fbf2;
+}
+.icon-location { 
+  color: #ff3b30; 
+  background-color: #fff1f0;
+}
+
+/* Alinhamento dos Textos Internos */
+.metric-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.metric-info p {
   margin: 0;
-  text-align: justify;
+  font-size: 0.92rem;
+  color: #525f6c;
+  line-height: 1.5;
 }
