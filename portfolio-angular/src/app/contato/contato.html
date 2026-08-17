@@ -1,21 +1,304 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Contato ✉️</mat-card-title>
-    <mat-card-subtitle>Vamos conversar ou treinar?</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p class="contact-text">
-      Seja para conversar sobre oportunidades de desenvolvimento de software, parcerias esportivas ou projetos no IFPR, sinta-se à vontade para entrar em contato comigo por qualquer um dos canais abaixo:
-    </p>
+<!-- src/app/contato/contato.html -->
 
-    <div class="contact-links">
-      <a mat-button href="mailto:borgefelipe0@gmailcom" target="_blank" class="contact-btn">
-        <mat-icon>mail</mat-icon> borgefelipe0&#64;gmail.com
-      </a>
-    
-      <a mat-button href="https://github.com/borgezmachado" target="_blank" class="contact-btn">
-        <mat-icon>terminal</mat-icon> GitHub Repositories
-      </a>
+<div class="contato-card">
+
+  <!-- Cabeçalho -->
+  <div class="contato-header">
+
+    <div class="header-icon">
+      <mat-icon>mail_outline</mat-icon>
     </div>
-  </mat-card-content>
-</mat-card>
+
+    <div>
+      <h2>Fale Comigo</h2>
+
+      <p class="subtitle">
+        Envie sua mensagem abaixo e entrarei em contato.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="header-divider"></div>
+
+
+  <!-- Formulário -->
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="contato-form"
+  >
+
+    <!-- =====================================================
+         CAMPO NOME
+         ===================================================== -->
+
+    <mat-form-field
+      appearance="outline"
+      class="full-width"
+    >
+
+      <mat-label>Nome completo</mat-label>
+
+      <mat-icon matPrefix>
+        person
+      </mat-icon>
+
+      <input
+        matInput
+        type="text"
+        formControlName="nome"
+        placeholder="Digite seu nome completo"
+        autocomplete="name"
+      />
+
+      @if (form.get('nome')?.hasError('required')) {
+        <mat-error>
+          O nome é obrigatório.
+        </mat-error>
+      }
+
+      @if (
+        form.get('nome')?.hasError('minlength') &&
+        !form.get('nome')?.hasError('required')
+      ) {
+        <mat-error>
+          Mínimo de 3 caracteres.
+        </mat-error>
+      }
+
+    </mat-form-field>
+
+
+    <!-- =====================================================
+         CAMPO E-MAIL
+         ===================================================== -->
+
+    <mat-form-field
+      appearance="outline"
+      class="full-width"
+    >
+
+      <mat-label>E-mail</mat-label>
+
+      <mat-icon matPrefix>
+        email
+      </mat-icon>
+
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        placeholder="seu.email@exemplo.com"
+        autocomplete="email"
+      />
+
+      @if (form.get('email')?.hasError('required')) {
+
+        <mat-error>
+          O e-mail é obrigatório.
+        </mat-error>
+
+      }
+
+      @if (
+        form.get('email')?.hasError('email') &&
+        !form.get('email')?.hasError('required')
+      ) {
+
+        <mat-error>
+          Informe um e-mail válido.
+        </mat-error>
+
+      }
+
+    </mat-form-field>
+
+
+    <!-- =====================================================
+         CAMPO MENSAGEM
+         ===================================================== -->
+
+    <mat-form-field
+      appearance="outline"
+      class="full-width"
+    >
+
+      <mat-label>Mensagem</mat-label>
+
+      <mat-icon matPrefix>
+        chat
+      </mat-icon>
+
+      <textarea
+        matInput
+        formControlName="mensagem"
+        rows="5"
+        maxlength="500"
+        placeholder="Escreva sua mensagem..."
+      ></textarea>
+
+      <mat-hint align="end">
+        {{ form.get('mensagem')?.value?.length || 0 }}/500
+      </mat-hint>
+
+      @if (form.get('mensagem')?.hasError('required')) {
+
+        <mat-error>
+          A mensagem é obrigatória.
+        </mat-error>
+
+      }
+
+      @if (
+        form.get('mensagem')?.hasError('minlength') &&
+        !form.get('mensagem')?.hasError('required')
+      ) {
+
+        <mat-error>
+          Mínimo de 10 caracteres.
+        </mat-error>
+
+      }
+
+    </mat-form-field>
+
+
+    <!-- =====================================================
+         ÁREA DOS BOTÕES
+         ===================================================== -->
+
+    <div class="form-actions">
+
+      <!-- ENVIAR -->
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="enviando"
+        class="btn-submit"
+      >
+
+        @if (enviando) {
+
+          <mat-spinner
+            diameter="20"
+            strokeWidth="3"
+          ></mat-spinner>
+
+          <span>
+            Enviando...
+          </span>
+
+        } @else {
+
+          <mat-icon>
+            send
+          </mat-icon>
+
+          <span>
+            Enviar Mensagem
+          </span>
+
+        }
+
+      </button>
+
+
+      <!-- LIMPAR -->
+      <button
+        mat-stroked-button
+        type="button"
+        class="btn-outlined"
+        [disabled]="enviando"
+        (click)="limpar()"
+      >
+
+        <mat-icon>
+          delete_outline
+        </mat-icon>
+
+        <span>
+          Limpar
+        </span>
+
+      </button>
+
+    </div>
+
+  </form>
+
+
+  <!-- =====================================================
+       MENSAGEM DE SUCESSO
+       ===================================================== -->
+
+  @if (sucesso) {
+
+    <div
+      class="feedback-msg ok"
+      role="alert"
+    >
+
+      <div class="feedback-icon">
+
+        <mat-icon>
+          check_circle
+        </mat-icon>
+
+      </div>
+
+      <div class="feedback-content">
+
+        <strong>
+          Mensagem enviada!
+        </strong>
+
+        <span>
+          {{ sucesso }}
+        </span>
+
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       MENSAGEM DE ERRO
+       ===================================================== -->
+
+  @if (erro) {
+
+    <div
+      class="feedback-msg erro"
+      role="alert"
+    >
+
+      <div class="feedback-icon">
+
+        <mat-icon>
+          error
+        </mat-icon>
+
+      </div>
+
+      <div class="feedback-content">
+
+        <strong>
+          Não foi possível enviar
+        </strong>
+
+        <span>
+          {{ erro }}
+        </span>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

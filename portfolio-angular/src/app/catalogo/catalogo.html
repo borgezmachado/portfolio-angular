@@ -1,8 +1,9 @@
+
 @if (carregando) { <p>Carregando catalogo...</p> }
 @if (erro) { <p>{{ erro }}</p> }
 
 @for (t of tecnologias; track t.id) {
-  <mat-card style="margin-bottom: 12px;">
+  <mat-card>
     <mat-card-header>
       <mat-card-title>{{ t.nome }}</mat-card-title>
       <mat-card-subtitle>{{ t.categoria }}</mat-card-subtitle>

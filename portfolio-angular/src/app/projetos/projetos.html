@@ -1,26 +1,263 @@
-@if (carregando) {
-  <p>Carregando projetos...</p>
-}
-@if (erro) {
-  <p>{{ erro }}</p>
-}
-@if (!carregando && projetos.length === 0) {
-  <p>Nenhum projeto publicado ainda.</p>
-}
+<!-- src/app/projetos/projetos.html -->
 
-@for (p of projetos; track p.id) {
-  <mat-card style="margin-bottom: 12px;">
-    <mat-card-header>
-      <mat-card-title>{{ p.nome }}</mat-card-title>
-      <mat-card-subtitle>{{ p.tecnologias }} - {{ p.ano }}</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content>{{ p.descricao }}</mat-card-content>
+<section class="projetos-page">
 
-    <mat-card-actions>
-      @if (p.link_github) {
-        <a mat-button [href]="p.link_github" target="_blank" rel="noopener">Ver no GitHub</a>
+  <!-- =====================================================
+       CABEÇALHO
+       ===================================================== -->
+
+  <div class="projetos-header">
+
+    <div class="header-icon">
+      <mat-icon>code</mat-icon>
+    </div>
+
+    <div class="header-content">
+
+      <span class="eyebrow">
+        MEU TRABALHO
+      </span>
+
+      <h1>
+        Meus Projetos
+      </h1>
+
+      <p>
+        Confira alguns dos projetos que desenvolvi,
+        tecnologias utilizadas e experiências adquiridas.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       DIVISOR
+       ===================================================== -->
+
+  <div class="header-divider"></div>
+
+
+  <!-- =====================================================
+       CARREGANDO
+       ===================================================== -->
+
+  @if (carregando) {
+
+    <div class="estado-card">
+
+      <mat-spinner
+        diameter="42"
+        strokeWidth="4"
+      ></mat-spinner>
+
+      <div>
+        <strong>Carregando projetos...</strong>
+
+        <span>
+          Aguarde enquanto buscamos os projetos publicados.
+        </span>
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       ERRO
+       ===================================================== -->
+
+  @if (erro) {
+
+    <div class="estado-card erro">
+
+      <div class="estado-icon">
+        <mat-icon>error_outline</mat-icon>
+      </div>
+
+      <div class="estado-content">
+
+        <strong>
+          Não foi possível carregar os projetos
+        </strong>
+
+        <span>
+          {{ erro }}
+        </span>
+
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       NENHUM PROJETO
+       ===================================================== -->
+
+  @if (!carregando && !erro && projetos.length === 0) {
+
+    <div class="estado-vazio">
+
+      <div class="empty-icon">
+        <mat-icon>folder_open</mat-icon>
+      </div>
+
+      <h2>
+        Nenhum projeto publicado
+      </h2>
+
+      <p>
+        Ainda não existem projetos disponíveis para visualização.
+      </p>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       GRID DE PROJETOS
+       ===================================================== -->
+
+  @if (!carregando && projetos.length > 0) {
+
+    <div class="projetos-grid">
+
+      @for (p of projetos; track p.id) {
+
+        <mat-card class="projeto-card">
+
+
+          <!-- Barra decorativa -->
+          <div class="card-top"></div>
+
+
+          <!-- Cabeçalho do projeto -->
+          <mat-card-header>
+
+            <div
+              mat-card-avatar
+              class="projeto-avatar"
+            >
+              <mat-icon>terminal</mat-icon>
+            </div>
+
+            <mat-card-title>
+              {{ p.nome }}
+            </mat-card-title>
+
+            <mat-card-subtitle>
+              <mat-icon>calendar_today</mat-icon>
+              {{ p.ano }}
+            </mat-card-subtitle>
+
+          </mat-card-header>
+
+
+          <!-- Conteúdo -->
+          <mat-card-content>
+
+            <!-- Tecnologias -->
+            <div class="tecnologias">
+
+              <div class="section-label">
+
+                <mat-icon>build</mat-icon>
+
+                <span>
+                  Tecnologias
+                </span>
+
+              </div>
+
+              <div class="tech-list">
+
+                @for (
+                  tecnologia of p.tecnologias.split(',');
+                  track tecnologia
+                ) {
+
+                  <span class="tech-badge">
+                    {{ tecnologia.trim() }}
+                  </span>
+
+                }
+
+              </div>
+
+            </div>
+
+
+            <!-- Descrição -->
+            <div class="descricao">
+
+              <div class="section-label">
+
+                <mat-icon>description</mat-icon>
+
+                <span>
+                  Sobre o projeto
+                </span>
+
+              </div>
+
+              <p>
+                {{ p.descricao }}
+              </p>
+
+            </div>
+
+          </mat-card-content>
+
+
+          <!-- Ações -->
+          <mat-card-actions>
+
+            @if (p.link_github) {
+
+              <a
+                mat-raised-button
+                color="primary"
+                class="github-button"
+                [href]="p.link_github"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <mat-icon>
+                  code
+                </mat-icon>
+
+                Ver no GitHub
+
+              </a>
+
+            } @else {
+
+              <span class="sem-link">
+
+                <mat-icon>
+                  link_off
+                </mat-icon>
+
+                Código não disponível
+
+              </span>
+
+            }
+
+          </mat-card-actions>
+
+        </mat-card>
+
       }
-    </mat-card-actions>
-  </mat-card>
-}
+
+    </div>
+
+  }
+
+</section>

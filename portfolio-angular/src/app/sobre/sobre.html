@@ -1,10 +1,225 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Sobre Mim 🚀</mat-card-title>
-    <mat-card-subtitle>Técnico em Informática – IFPR CRPG</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>Olá! Eu sou o Borges. Minha trajetória na tecnologia começou no IFPR, onde venho desenvolvendo minhas habilidades técnicas, aprofundando meus conhecimentos em lógica e, agora, na criação de aplicações web modernas com Angular.</p>
-    <p>Neste portfólio, meu objetivo é apresentar os projetos que desenvolvi, demonstrando a evolução do meu aprendizado, a organização do meu código e a aplicação prática de interfaces dinâmicas e responsivas.</p>
-  </mat-card-content>
-</mat-card>
+<!-- src/app/sobre/sobre.html -->
+
+<section class="sobre-page">
+
+  <!-- =====================================================
+       CABEÇALHO
+       ===================================================== -->
+
+  <div class="sobre-header">
+
+    <div class="header-icon">
+      <mat-icon>person</mat-icon>
+    </div>
+
+    <div class="header-content">
+
+      <span class="eyebrow">
+        QUEM SOU EU
+      </span>
+
+      <h1>
+        Sobre Mim
+      </h1>
+
+      <p>
+        Conheça um pouco da minha trajetória e da minha
+        evolução na área de tecnologia.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       DIVISOR
+       ===================================================== -->
+
+  <div class="header-divider"></div>
+
+
+  <!-- =====================================================
+       CARD PRINCIPAL
+       ===================================================== -->
+
+  <mat-card class="sobre-card">
+
+    <div class="card-top"></div>
+
+
+    <mat-card-header>
+
+      <div
+        mat-card-avatar
+        class="perfil-avatar"
+      >
+        <mat-icon>person_outline</mat-icon>
+      </div>
+
+      <mat-card-title>
+        Borges 🚀
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        Técnico em Informática – IFPR CRPG
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+
+    <mat-card-content>
+
+      <!-- =================================================
+           INTRODUÇÃO
+           ================================================= -->
+
+      <div class="sobre-section">
+
+        <div class="section-title">
+
+          <div class="section-icon">
+            <mat-icon>person</mat-icon>
+          </div>
+
+          <div>
+            <h2>
+              Quem sou
+            </h2>
+
+            <span>
+              Minha trajetória
+            </span>
+          </div>
+
+        </div>
+
+
+        <p>
+          Olá! Eu sou o Borges. Minha trajetória na tecnologia
+          começou no IFPR, onde venho desenvolvendo minhas
+          habilidades técnicas, aprofundando meus conhecimentos
+          em lógica e, agora, na criação de aplicações web
+          modernas com Angular.
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           PORTFÓLIO
+           ================================================= -->
+
+      <div class="sobre-section">
+
+        <div class="section-title">
+
+          <div class="section-icon">
+            <mat-icon>code</mat-icon>
+          </div>
+
+          <div>
+            <h2>
+              Meu portfólio
+            </h2>
+
+            <span>
+              Aprendizado na prática
+            </span>
+          </div>
+
+        </div>
+
+
+        <p>
+          Neste portfólio, meu objetivo é apresentar os projetos
+          que desenvolvi, demonstrando a evolução do meu
+          aprendizado, a organização do meu código e a aplicação
+          prática de interfaces dinâmicas e responsivas.
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           TECNOLOGIAS
+           ================================================= -->
+
+      <div class="tecnologias-section">
+
+        <div class="section-title">
+
+          <div class="section-icon">
+            <mat-icon>terminal</mat-icon>
+          </div>
+
+          <div>
+            <h2>
+              Atualmente estudando
+            </h2>
+
+            <span>
+              Tecnologias e desenvolvimento
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="tech-list">
+
+          <span class="tech-badge">
+            <mat-icon>code</mat-icon>
+            Angular
+          </span>
+
+          <span class="tech-badge">
+            <mat-icon>language</mat-icon>
+            HTML
+          </span>
+
+          <span class="tech-badge">
+            <mat-icon>palette</mat-icon>
+            CSS
+          </span>
+
+          <span class="tech-badge">
+            <mat-icon>javascript</mat-icon>
+            TypeScript
+          </span>
+
+          <span class="tech-badge">
+            <mat-icon>storage</mat-icon>
+            PHP
+          </span>
+
+        </div>
+
+      </div>
+
+    </mat-card-content>
+
+
+    <!-- =================================================
+         RODAPÉ
+         ================================================= -->
+
+    <mat-card-actions>
+
+      <div class="card-footer">
+
+        <mat-icon>
+          school
+        </mat-icon>
+
+        <span>
+          Em constante aprendizado e evolução.
+        </span>
+
+      </div>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</section>

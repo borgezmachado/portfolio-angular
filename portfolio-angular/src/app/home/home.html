@@ -1,39 +1,1285 @@
-<!-- Card Principal de Boas-Vindas -->
-<mat-card class="welcome-card">
-  <mat-card-header>
-    <mat-card-title>Bem-vindo ao meu Portfólio 👋</mat-card-title>
-    <mat-card-subtitle>Felipe Borges | Atleta & Desenvolvedor</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>Este espaço foi criado para documentar minha evolução na programação e centralizar meus principais projetos. Navegue pelo menu para conhecer mais sobre mim e acompanhar minhas criações técnicas.</p>
-  </mat-card-content>
-</mat-card>
+<div class="home">
 
-<!-- Seção de Métricas Atuais (Híbrida) -->
-<div class="metrics-container">
-  
-  <div class="metric-box">
-    <mat-icon class="icon-sport">sports_volleyball</mat-icon>
-    <div class="metric-info">
-      <h3>Próximo Desafio</h3>
-      <p>Treinos focados em fundamentos de ataque e bloqueio.</p>
-    </div>
-  </div>
+  <!-- ==========================================
+       HERO
+  =========================================== -->
+  <section class="hero">
 
-  <div class="metric-box">
-    <mat-icon class="icon-code">terminal</mat-icon>
-    <div class="metric-info">
-      <h3>Stack Atual</h3>
-      <p>Especializando em Angular, Componentes Material e CSS Fluido.</p>
+    <div class="hero-background">
+      <div class="gradient gradient-1"></div>
+      <div class="gradient gradient-2"></div>
+      <div class="grid-background"></div>
     </div>
-  </div>
 
-  <div class="metric-box">
-    <mat-icon class="icon-location">location_on</mat-icon>
-    <div class="metric-info">
-      <h3>Localização</h3>
-      <p>UEPG - Universidade Estadual de Ponta Grossa</p>
+    <div class="hero-container">
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <div class="hero-content">
+
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Disponível para novos desafios
+        </div>
+
+        <h1>
+          Olá, eu sou
+          <span>Felipe Borges.</span>
+        </h1>
+
+        <h2>
+          Atleta &amp; Desenvolvedor
+        </h2>
+
+        <p class="hero-description">
+          Construindo meu futuro através da tecnologia,
+          disciplina e evolução constante.
+          Este é o espaço onde compartilho minha jornada,
+          meus projetos e tudo que estou aprendendo.
+        </p>
+
+        <div class="hero-buttons">
+
+          <button
+            mat-flat-button
+            class="primary-button"
+            routerLink="/projetos">
+
+            <mat-icon>rocket_launch</mat-icon>
+
+            Ver projetos
+
+          </button>
+
+          <button
+            mat-stroked-button
+            class="outline-button"
+            routerLink="/sobre">
+
+            <mat-icon>person</mat-icon>
+
+            Sobre mim
+
+          </button>
+
+        </div>
+
+        <div class="hero-social">
+
+          <span>Encontre-me também:</span>
+
+          <button
+            mat-icon-button
+            matTooltip="GitHub"
+            aria-label="GitHub">
+
+            <mat-icon>code</mat-icon>
+
+          </button>
+
+          <button
+            mat-icon-button
+            matTooltip="LinkedIn"
+            aria-label="LinkedIn">
+
+            <mat-icon>business</mat-icon>
+
+          </button>
+
+          <button
+            mat-icon-button
+            matTooltip="E-mail"
+            aria-label="E-mail">
+
+            <mat-icon>mail</mat-icon>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==========================================
+           VISUAL DO HERO
+      =========================================== -->
+      <div class="hero-visual">
+
+        <div class="profile-orbit orbit-one"></div>
+        <div class="profile-orbit orbit-two"></div>
+
+        <div class="profile-card">
+
+          <div class="profile-card-top">
+
+            <div class="profile-avatar">
+              FB
+            </div>
+
+            <div class="online-indicator"></div>
+
+          </div>
+
+          <div class="profile-card-content">
+
+            <span class="profile-label">
+              CURRENT ROLE
+            </span>
+
+            <h3>
+              Desenvolvedor
+            </h3>
+
+            <p>
+              Criando experiências digitais
+              com Angular &amp; TypeScript.
+            </p>
+
+            <div class="profile-tags">
+
+              <span>Angular</span>
+              <span>TypeScript</span>
+              <span>CSS</span>
+
+            </div>
+
+          </div>
+
+          <div class="profile-card-footer">
+
+            <div>
+              <mat-icon>sports_volleyball</mat-icon>
+              <span>Atleta</span>
+            </div>
+
+            <div>
+              <mat-icon>code</mat-icon>
+              <span>Dev</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CARD FLUTUANTE ESPORTE -->
+        <div class="floating-card floating-sport">
+
+          <mat-icon>
+            sports_volleyball
+          </mat-icon>
+
+          <div>
+            <strong>Esporte</strong>
+            <span>Disciplina</span>
+          </div>
+
+        </div>
+
+
+        <!-- CARD FLUTUANTE CÓDIGO -->
+        <div class="floating-card floating-code">
+
+          <mat-icon>
+            terminal
+          </mat-icon>
+
+          <div>
+            <strong>Código</strong>
+            <span>Criatividade</span>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-  </div>
+
+
+    <div class="scroll-indicator">
+
+      <mat-icon>
+        keyboard_arrow_down
+      </mat-icon>
+
+      <span>
+        Explore
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       INTRODUÇÃO
+  =========================================== -->
+  <section class="intro-section">
+
+    <div class="section-container">
+
+      <div class="section-header">
+
+        <span class="section-overline">
+          BEM-VINDO AO MEU PORTFÓLIO
+        </span>
+
+        <h2>
+          Onde
+          <span>tecnologia</span>
+          encontra
+          <span>disciplina.</span>
+        </h2>
+
+        <p>
+          Mais do que mostrar projetos, este portfólio
+          representa uma jornada de aprendizado,
+          desafios e evolução.
+        </p>
+
+      </div>
+
+
+      <div class="principles-grid">
+
+        <!-- APRENDER -->
+        <mat-card class="principle-card">
+
+          <div class="principle-icon blue">
+            <mat-icon>
+              psychology
+            </mat-icon>
+          </div>
+
+          <span class="card-number">
+            01
+          </span>
+
+          <h3>
+            Aprender
+          </h3>
+
+          <p>
+            Busco constantemente novos conhecimentos
+            e tecnologias para evoluir como desenvolvedor.
+          </p>
+
+        </mat-card>
+
+
+        <!-- TREINAR -->
+        <mat-card class="principle-card">
+
+          <div class="principle-icon cyan">
+            <mat-icon>
+              fitness_center
+            </mat-icon>
+          </div>
+
+          <span class="card-number">
+            02
+          </span>
+
+          <h3>
+            Treinar
+          </h3>
+
+          <p>
+            Assim como no esporte, acredito que a prática
+            constante transforma conhecimento em habilidade.
+          </p>
+
+        </mat-card>
+
+
+        <!-- EVOLUIR -->
+        <mat-card class="principle-card">
+
+          <div class="principle-icon purple">
+            <mat-icon>
+              trending_up
+            </mat-icon>
+          </div>
+
+          <span class="card-number">
+            03
+          </span>
+
+          <h3>
+            Evoluir
+          </h3>
+
+          <p>
+            Cada projeto, erro e desafio representa
+            uma oportunidade para me tornar melhor.
+          </p>
+
+        </mat-card>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       MÉTRICAS
+  =========================================== -->
+  <section class="metrics-section">
+
+    <div class="section-container">
+
+      <div class="metrics-grid">
+
+        <div class="metric">
+
+          <div class="metric-icon">
+            <mat-icon>
+              code
+            </mat-icon>
+          </div>
+
+          <div>
+            <strong>
+              Angular
+            </strong>
+
+            <span>
+              Stack principal
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-icon">
+            <mat-icon>
+              sports_volleyball
+            </mat-icon>
+          </div>
+
+          <div>
+            <strong>
+              Vôlei
+            </strong>
+
+            <span>
+              Paixão pelo esporte
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-icon">
+            <mat-icon>
+              school
+            </mat-icon>
+          </div>
+
+          <div>
+            <strong>
+              UEPG
+            </strong>
+
+            <span>
+              Jornada acadêmica
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-icon">
+            <mat-icon>
+              auto_graph
+            </mat-icon>
+          </div>
+
+          <div>
+            <strong>
+              Evolução
+            </strong>
+
+            <span>
+              Sempre em progresso
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       SOBRE MIM
+  =========================================== -->
+  <section class="about-section">
+
+    <div class="section-container about-container">
+
+      <!-- ILUSTRAÇÃO DE CÓDIGO -->
+      <div class="about-image">
+
+        <div class="about-decoration decoration-one"></div>
+
+        <div class="about-decoration decoration-two"></div>
+
+        <div class="about-main-card">
+
+          <div class="about-code">
+
+            <div class="code-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="code-line">
+              <span class="purple-text">const</span>
+              <span class="blue-text">objetivo</span>
+              =
+              <span class="green-text">
+                'evoluir'
+              </span>;
+            </div>
+
+            <div class="code-line">
+              <span class="purple-text">const</span>
+              <span class="blue-text">foco</span>
+              =
+              <span class="green-text">
+                'resultado'
+              </span>;
+            </div>
+
+            <div class="code-line">
+              <span class="purple-text">const</span>
+              <span class="blue-text">mentalidade</span>
+              =
+              <span class="green-text">
+                'disciplina'
+              </span>;
+            </div>
+
+            <div class="code-line empty"></div>
+
+            <div class="code-line">
+              <span class="purple-text">while</span>
+              (<span class="blue-text">aprendendo</span>)
+              &#123;
+            </div>
+
+            <div class="code-line indent">
+              <span class="blue-text">
+                melhorar
+              </span>();
+            </div>
+
+            <div class="code-line">
+              &#125;
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEXTO -->
+      <div class="about-content">
+
+        <span class="section-overline">
+          SOBRE MIM
+        </span>
+
+        <h2>
+          Do esporte para
+          <span>o código.</span>
+        </h2>
+
+        <p>
+          Minha trajetória une duas áreas que,
+          apesar de diferentes, possuem algo em comum:
+          a necessidade de dedicação constante.
+        </p>
+
+        <p>
+          No esporte, aprendi sobre disciplina,
+          trabalho em equipe, pressão e superação.
+          Na programação, encontrei um ambiente onde
+          posso transformar ideias em soluções.
+        </p>
+
+        <p>
+          Hoje busco unir essas experiências para
+          desenvolver projetos cada vez melhores
+          e continuar evoluindo profissionalmente.
+        </p>
+
+
+        <div class="about-points">
+
+          <div class="about-point">
+
+            <mat-icon>
+              check_circle
+            </mat-icon>
+
+            <span>
+              Mentalidade de crescimento
+            </span>
+
+          </div>
+
+
+          <div class="about-point">
+
+            <mat-icon>
+              check_circle
+            </mat-icon>
+
+            <span>
+              Foco em aprendizado contínuo
+            </span>
+
+          </div>
+
+
+          <div class="about-point">
+
+            <mat-icon>
+              check_circle
+            </mat-icon>
+
+            <span>
+              Paixão por tecnologia
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <button
+          mat-flat-button
+          class="about-button"
+          routerLink="/sobre">
+
+          Conheça minha história
+
+          <mat-icon>
+            arrow_forward
+          </mat-icon>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       TECNOLOGIAS
+  =========================================== -->
+  <section class="stack-section">
+
+    <div class="section-container">
+
+      <div class="section-header">
+
+        <span class="section-overline">
+          TECNOLOGIAS
+        </span>
+
+        <h2>
+          Ferramentas que fazem
+          <span>parte da jornada.</span>
+        </h2>
+
+        <p>
+          Tecnologias que estou utilizando,
+          estudando e explorando durante minha evolução.
+        </p>
+
+      </div>
+
+
+      <div class="technology-grid">
+
+        <!-- ANGULAR -->
+        <mat-card class="technology-card">
+
+          <div class="technology-icon angular-icon">
+
+            <mat-icon>
+              web
+            </mat-icon>
+
+          </div>
+
+          <h3>
+            Angular
+          </h3>
+
+          <p>
+            Framework principal para construção
+            de aplicações web modernas.
+          </p>
+
+          <div class="technology-footer">
+
+            <span>
+              Principal
+            </span>
+
+            <mat-icon>
+              arrow_forward
+            </mat-icon>
+
+          </div>
+
+        </mat-card>
+
+
+        <!-- TYPESCRIPT -->
+        <mat-card class="technology-card">
+
+          <div class="technology-icon typescript-icon">
+
+            <mat-icon>
+              code
+            </mat-icon>
+
+          </div>
+
+          <h3>
+            TypeScript
+          </h3>
+
+          <p>
+            Linguagem utilizada para desenvolver
+            aplicações mais organizadas e robustas.
+          </p>
+
+          <div class="technology-footer">
+
+            <span>
+              Estudando
+            </span>
+
+            <mat-icon>
+              arrow_forward
+            </mat-icon>
+
+          </div>
+
+        </mat-card>
+
+
+        <!-- MATERIAL -->
+        <mat-card class="technology-card">
+
+          <div class="technology-icon material-icon">
+
+            <mat-icon>
+              widgets
+            </mat-icon>
+
+          </div>
+
+          <h3>
+            Angular Material
+          </h3>
+
+          <p>
+            Componentes para criar interfaces
+            modernas, consistentes e acessíveis.
+          </p>
+
+          <div class="technology-footer">
+
+            <span>
+              Utilizando
+            </span>
+
+            <mat-icon>
+              arrow_forward
+            </mat-icon>
+
+          </div>
+
+        </mat-card>
+
+
+        <!-- HTML CSS -->
+        <mat-card class="technology-card">
+
+          <div class="technology-icon css-icon">
+
+            <mat-icon>
+              palette
+            </mat-icon>
+
+          </div>
+
+          <h3>
+            HTML &amp; CSS
+          </h3>
+
+          <p>
+            Estrutura, responsividade, animações
+            e identidade visual dos projetos.
+          </p>
+
+          <div class="technology-footer">
+
+            <span>
+              Evoluindo
+            </span>
+
+            <mat-icon>
+              arrow_forward
+            </mat-icon>
+
+          </div>
+
+        </mat-card>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       PROJETOS
+  =========================================== -->
+  <section class="projects-section">
+
+    <div class="section-container">
+
+      <div class="projects-heading">
+
+        <div>
+
+          <span class="section-overline">
+            PORTFÓLIO
+          </span>
+
+          <h2>
+            Projetos em destaque
+          </h2>
+
+          <p>
+            Alguns dos trabalhos e experiências
+            que fazem parte da minha evolução.
+          </p>
+
+        </div>
+
+
+        <button
+          mat-stroked-button
+          class="see-all-button"
+          routerLink="/projetos">
+
+          Ver todos
+
+          <mat-icon>
+            arrow_forward
+          </mat-icon>
+
+        </button>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+        <!-- PROJETO PRINCIPAL -->
+        <mat-card class="project-card project-main">
+
+          <div class="project-image project-image-one">
+
+            <div class="project-window">
+
+              <div class="window-header">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+              <div class="window-body">
+
+                <div class="fake-sidebar"></div>
+
+                <div class="fake-content">
+
+                  <div class="fake-title"></div>
+
+                  <div class="fake-line"></div>
+
+                  <div class="fake-line short"></div>
+
+                  <div class="fake-cards">
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <mat-card-content>
+
+            <div class="project-tags">
+
+              <span>Angular</span>
+              <span>Material</span>
+              <span>CSS</span>
+
+            </div>
+
+            <h3>
+              Projeto em destaque
+            </h3>
+
+            <p>
+              Uma aplicação desenvolvida para colocar
+              em prática conceitos de Angular,
+              componentes e interfaces responsivas.
+            </p>
+
+            <button
+              mat-button
+              color="primary"
+              routerLink="/projetos">
+
+              Ver projeto
+
+              <mat-icon>
+                arrow_forward
+              </mat-icon>
+
+            </button>
+
+          </mat-card-content>
+
+        </mat-card>
+
+
+        <!-- PROJETO ESPORTE -->
+        <mat-card class="project-card project-small">
+
+          <div class="small-project-icon">
+
+            <mat-icon>
+              sports_volleyball
+            </mat-icon>
+
+          </div>
+
+          <mat-card-content>
+
+            <span class="project-category">
+              ESPORTE
+            </span>
+
+            <h3>
+              Performance &amp; Disciplina
+            </h3>
+
+            <p>
+              Um conceito que une tecnologia,
+              esporte e acompanhamento de evolução.
+            </p>
+
+            <button
+              mat-button
+              color="primary">
+
+              Explorar
+
+              <mat-icon>
+                arrow_forward
+              </mat-icon>
+
+            </button>
+
+          </mat-card-content>
+
+        </mat-card>
+
+
+        <!-- PROJETO CÓDIGO -->
+        <mat-card class="project-card project-small">
+
+          <div class="small-project-icon purple-small">
+
+            <mat-icon>
+              terminal
+            </mat-icon>
+
+          </div>
+
+          <mat-card-content>
+
+            <span class="project-category">
+              DESENVOLVIMENTO
+            </span>
+
+            <h3>
+              Laboratório de código
+            </h3>
+
+            <p>
+              Experimentos, estudos e pequenos projetos
+              desenvolvidos durante minha aprendizagem.
+            </p>
+
+            <button
+              mat-button
+              color="primary"
+              routerLink="/projetos">
+
+              Explorar
+
+              <mat-icon>
+                arrow_forward
+              </mat-icon>
+
+            </button>
+
+          </mat-card-content>
+
+        </mat-card>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       JORNADA
+  =========================================== -->
+  <section class="journey-section">
+
+    <div class="section-container">
+
+      <div class="section-header">
+
+        <span class="section-overline">
+          MENTALIDADE
+        </span>
+
+        <h2>
+          A mesma mentalidade,
+          <span>em qualquer desafio.</span>
+        </h2>
+
+        <p>
+          Os princípios que utilizo para evoluir
+          dentro e fora da programação.
+        </p>
+
+      </div>
+
+
+      <div class="journey-grid">
+
+        <!-- 01 -->
+        <div class="journey-card">
+
+          <div class="journey-number">
+            01
+          </div>
+
+          <mat-icon>
+            fitness_center
+          </mat-icon>
+
+          <h3>
+            Treinar
+          </h3>
+
+          <p>
+            Praticar todos os dias para transformar
+            conhecimento em habilidade.
+          </p>
+
+        </div>
+
+
+        <!-- 02 -->
+        <div class="journey-card">
+
+          <div class="journey-number">
+            02
+          </div>
+
+          <mat-icon>
+            bug_report
+          </mat-icon>
+
+          <h3>
+            Errar
+          </h3>
+
+          <p>
+            Entender os erros e utilizá-los como
+            parte essencial do aprendizado.
+          </p>
+
+        </div>
+
+
+        <!-- 03 -->
+        <div class="journey-card">
+
+          <div class="journey-number">
+            03
+          </div>
+
+          <mat-icon>
+            trending_up
+          </mat-icon>
+
+          <h3>
+            Evoluir
+          </h3>
+
+          <p>
+            Transformar experiência em resultados
+            cada vez melhores.
+          </p>
+
+        </div>
+
+
+        <!-- 04 -->
+        <div class="journey-card">
+
+          <div class="journey-number">
+            04
+          </div>
+
+          <mat-icon>
+            emoji_events
+          </mat-icon>
+
+          <h3>
+            Conquistar
+          </h3>
+
+          <p>
+            Celebrar cada conquista sem deixar de
+            buscar o próximo desafio.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       CTA
+  =========================================== -->
+  <section class="cta-section">
+
+    <div class="cta-glow"></div>
+
+    <div class="cta-content">
+
+      <div class="cta-icon">
+
+        <mat-icon>
+          rocket_launch
+        </mat-icon>
+
+      </div>
+
+      <span class="section-overline">
+        PRÓXIMO DESAFIO
+      </span>
+
+      <h2>
+        Vamos construir algo
+        <span>incrível juntos?</span>
+      </h2>
+
+      <p>
+        Explore meus projetos, conheça minha trajetória
+        e acompanhe minha evolução como desenvolvedor.
+      </p>
+
+      <div class="cta-buttons">
+
+        <button
+          mat-flat-button
+          class="cta-primary"
+          routerLink="/projetos">
+
+          <mat-icon>
+            folder_open
+          </mat-icon>
+
+          Explorar projetos
+
+        </button>
+
+
+        <button
+          mat-stroked-button
+          class="cta-secondary"
+          routerLink="/contato">
+
+          <mat-icon>
+            mail
+          </mat-icon>
+
+          Entrar em contato
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- MARCA -->
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+          FB
+        </div>
+
+        <div>
+
+          <strong>
+            Felipe Borges
+          </strong>
+
+          <span>
+            Atleta &amp; Desenvolvedor
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- CENTRO -->
+      <div class="footer-center">
+
+        <span>
+          Construído com
+        </span>
+
+        <mat-icon>
+          favorite
+        </mat-icon>
+
+        <span>
+          e Angular
+        </span>
+
+      </div>
+
+
+      <!-- REDES -->
+      <div class="footer-social">
+
+        <button
+          mat-icon-button
+          matTooltip="GitHub"
+          aria-label="GitHub">
+
+          <mat-icon>
+            code
+          </mat-icon>
+
+        </button>
+
+        <button
+          mat-icon-button
+          matTooltip="LinkedIn"
+          aria-label="LinkedIn">
+
+          <mat-icon>
+            business
+          </mat-icon>
+
+        </button>
+
+        <button
+          mat-icon-button
+          matTooltip="E-mail"
+          aria-label="E-mail">
+
+          <mat-icon>
+            mail
+          </mat-icon>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © {{ currentYear }} Felipe Borges.
+        Todos os direitos reservados.
+      </span>
+
+      <span>
+        Feito com Angular Material.
+      </span>
+
+    </div>
+
+  </footer>
 
 </div>

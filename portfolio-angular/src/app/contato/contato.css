@@ -1,67 +1,766 @@
-mat-card {
-  max-width: 520px; /* Pouco mais compacto por conter menos texto */
-  margin: 60px auto 0 auto;
-  padding: 32px 24px;
-  background: #ffffff !important;
-  border-radius: 8px !important;
-  border: 1px solid #e5e5e5 !important;
-  box-shadow: none !important;
+/* =========================================================
+   CONTATO - ESTILO PREMIUM
+   ========================================================= */
+
+.contato-card {
+  width: min(100% - 2rem, 560px);
+  margin: 3rem auto;
+  padding: 2.5rem;
+
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.10),
+    0 8px 24px rgba(15, 23, 42, 0.06);
+
+  position: relative;
+  overflow: hidden;
+
+  animation: cardEntrada 0.5s ease-out;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-mat-card-title {
-  font-size: 1.5rem !important;
-  font-weight: 600 !important;
-  color: #1a1a1a;
-  margin-bottom: 6px !important;
+/* Detalhe decorativo no topo */
+.contato-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #3f51b5,
+    #6366f1,
+    #8b5cf6
+  );
 }
 
-mat-card-subtitle {
-  font-size: 0.9rem !important;
-  color: #707070 !important;
-  margin-bottom: 20px !important;
+/* Brilho decorativo */
+.contato-card::after {
+  content: "";
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -80px;
+
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 50%;
+
+  pointer-events: none;
 }
 
-.contact-text {
-  font-size: 0.95rem;
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.contato-card h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 0.6rem;
+
+  color: #1e293b;
+
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  line-height: 1.2;
+}
+
+/* Pequeno detalhe abaixo do título */
+.contato-card h2::after {
+  content: "";
+
+  display: block;
+
+  width: 45px;
+  height: 4px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #3f51b5,
+    #8b5cf6
+  );
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
+
+.subtitle {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 2rem;
+
+  color: #64748b;
+
+  font-size: 0.98rem;
   line-height: 1.6;
-  color: #404040;
-  margin-bottom: 24px;
 }
 
-/* Alinhamento dos botões de redes sociais */
-.contact-links {
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.contato-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.25rem;
 }
 
-.contact-links a.contact-btn {
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+.full-width {
   width: 100%;
-  text-align: left !important;
-  justify-content: flex-start !important;
-  color: #444444 !important;
-  font-size: 0.9rem !important;
-  font-weight: 500 !important;
-  padding: 12px 16px !important;
-  border: 1px solid #e5e5e5 !important;
-  border-radius: 6px !important;
+  margin-bottom: 0.75rem;
+}
+
+/* Efeito suave nos campos Material */
+::ng-deep .mat-mdc-form-field {
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+::ng-deep .mat-mdc-form-field:hover {
+  filter: brightness(0.99);
+}
+
+::ng-deep .mat-mdc-form-field:focus-within {
+  transform: translateY(-1px);
+}
+
+
+/* Fundo dos campos */
+::ng-deep .mat-mdc-text-field-wrapper {
+  border-radius: 12px !important;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+   ========================================================= */
+
+.btn-submit {
+  position: relative;
+
+  width: 100%;
+  height: 52px;
+
+  margin-top: 0.75rem;
+
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #3f51b5 0%,
+    #6366f1 50%,
+    #7c3aed 100%
+  );
+
+  box-shadow:
+    0 8px 20px rgba(63, 81, 181, 0.25);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Brilho passando pelo botão */
+.btn-submit::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+.btn-submit:hover::before {
+  left: 140%;
+}
+
+.btn-submit:hover:not([disabled]) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(63, 81, 181, 0.32);
+
+  filter: brightness(1.05);
+}
+
+.btn-submit:active:not([disabled]) {
+  transform: translateY(0);
+
+  box-shadow:
+    0 6px 14px rgba(63, 81, 181, 0.22);
+}
+
+
+/* Botão desabilitado */
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   SPINNER
+   ========================================================= */
+
+.btn-submit mat-spinner {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BOTÃO OUTLINED
+   ========================================================= */
+
+.btn-outlined {
+  width: 100%;
+  height: 50px;
+
+  margin-top: 0.75rem;
+
+  border-width: 2px !important;
+  border-radius: 12px !important;
+
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1px;
+
+  color: #3f51b5 !important;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.btn-outlined:hover:not([disabled]) {
+  background-color: rgba(63, 81, 181, 0.07) !important;
+
+  border-color: #3f51b5 !important;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 15px rgba(63, 81, 181, 0.12);
+}
+
+.btn-outlined:active:not([disabled]) {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   MENSAGENS DE FEEDBACK
+   ========================================================= */
+
+.feedback-msg {
+  display: flex;
+  align-items: flex-start;
   gap: 12px;
-  background: transparent;
-  transition: background 0.2s ease, border-color 0.2s ease;
+
+  padding: 15px 17px;
+
+  margin-top: 1.5rem;
+
+  border-radius: 12px;
+
+  font-size: 0.92rem;
+  line-height: 1.5;
+
+  animation: feedbackEntrada 0.3s ease-out;
 }
 
-/* Efeito sutil hover nos botões de contato */
-.contact-links a.contact-btn:hover {
-  background-color: #fafafa !important;
-  border-color: #1a1a1a !important;
-  color: #1a1a1a !important;
+
+/* Sucesso */
+.feedback-msg.ok {
+  color: #166534;
+
+  background: linear-gradient(
+    135deg,
+    #f0fdf4,
+    #dcfce7
+  );
+
+  border: 1px solid #bbf7d0;
+
+  box-shadow:
+    0 5px 15px rgba(22, 101, 52, 0.07);
 }
 
-.contact-links mat-icon {
-  color: #666666;
-  font-size: 20px;
-  width: 20px;
-  height: 20px;
+
+/* Erro */
+.feedback-msg.erro {
+  color: #b91c1c;
+
+  background: linear-gradient(
+    135deg,
+    #fff7f7,
+    #fee2e2
+  );
+
+  border: 1px solid #fecaca;
+
+  box-shadow:
+    0 5px 15px rgba(185, 28, 28, 0.07);
+}
+
+
+/* =========================================================
+   ÍCONES NAS MENSAGENS
+   ========================================================= */
+
+.feedback-msg mat-icon {
+  flex-shrink: 0;
+
+  width: 22px;
+  height: 22px;
+
+  font-size: 22px;
+
+  margin-top: 1px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .contato-card {
+    width: calc(100% - 2rem);
+
+    margin: 1.5rem auto;
+
+    padding: 1.75rem;
+
+    border-radius: 20px;
+  }
+
+  .contato-card h2 {
+    font-size: 1.55rem;
+  }
+
+  .subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-submit,
+  .btn-outlined {
+    height: 50px;
+  }
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .contato-card {
+    width: calc(100% - 1rem);
+
+    padding: 1.35rem;
+
+    border-radius: 18px;
+  }
+
+  .contato-card h2 {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes cardEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes feedbackEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contato-card,
+  .feedback-msg,
+  .btn-submit,
+  .btn-outlined {
+    animation: none;
+    transition: none;
+  }
+}
+.contato-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.header-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #3f51b5,
+    #7c3aed
+  );
+
+  box-shadow:
+    0 8px 18px rgba(63, 81, 181, 0.25);
+}
+
+.header-icon mat-icon {
+  font-size: 27px;
+  width: 27px;
+  height: 27px;
+}
+
+.contato-header h2 {
+  margin: 0 0 4px;
+}
+
+.contato-header .subtitle {
+  margin: 0;
+}
+
+.header-divider {
+  height: 1px;
+
+  margin-bottom: 1.75rem;
+
+  background: linear-gradient(
+    90deg,
+    rgba(63, 81, 181, 0.25),
+    rgba(63, 81, 181, 0.03),
+    transparent
+  );
+}
+
+
+/* =========================================================
+   ÍCONES DOS CAMPOS
+   ========================================================= */
+
+::ng-deep .mat-mdc-form-field-icon-prefix {
+  padding-right: 10px;
+}
+
+::ng-deep .mat-mdc-form-field-icon-prefix mat-icon {
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+::ng-deep .mat-mdc-form-field:focus-within
+.mat-mdc-form-field-icon-prefix mat-icon {
+  color: #3f51b5;
+}
+
+
+/* =========================================================
+   ÁREA DOS BOTÕES
+   ========================================================= */
+
+.form-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 150px;
+
+  gap: 12px;
+
+  margin-top: 0.5rem;
+}
+
+
+/* =========================================================
+   BOTÃO ENVIAR
+   ========================================================= */
+
+.btn-submit {
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border-radius: 12px !important;
+
+  font-size: 0.98rem;
+  font-weight: 600;
+
+  background: linear-gradient(
+    135deg,
+    #3f51b5,
+    #6366f1,
+    #7c3aed
+  ) !important;
+
+  box-shadow:
+    0 8px 20px rgba(63, 81, 181, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.btn-submit:hover:not([disabled]) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 26px rgba(63, 81, 181, 0.32);
+}
+
+
+/* =========================================================
+   BOTÃO LIMPAR
+   ========================================================= */
+
+.btn-outlined {
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 12px !important;
+
+  border-width: 2px !important;
+
+  font-weight: 600 !important;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.btn-outlined:hover:not([disabled]) {
+  transform: translateY(-2px);
+
+  background-color: rgba(63, 81, 181, 0.07) !important;
+
+  box-shadow:
+    0 6px 16px rgba(63, 81, 181, 0.12);
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+.feedback-msg {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 16px;
+
+  margin-top: 1.5rem;
+
+  border-radius: 14px;
+
+  animation: feedbackEntrada 0.3s ease-out;
+}
+
+.feedback-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
+
+.feedback-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  line-height: 1.4;
+}
+
+.feedback-content strong {
+  font-size: 0.95rem;
+}
+
+.feedback-content span {
+  font-size: 0.88rem;
+}
+
+
+/* SUCESSO */
+
+.feedback-msg.ok {
+  color: #166534;
+
+  background: linear-gradient(
+    135deg,
+    #f0fdf4,
+    #dcfce7
+  );
+
+  border: 1px solid #bbf7d0;
+}
+
+.feedback-msg.ok .feedback-icon {
+  color: #ffffff;
+
+  background: #22c55e;
+}
+
+
+/* ERRO */
+
+.feedback-msg.erro {
+  color: #991b1b;
+
+  background: linear-gradient(
+    135deg,
+    #fff7f7,
+    #fee2e2
+  );
+
+  border: 1px solid #fecaca;
+}
+
+.feedback-msg.erro .feedback-icon {
+  color: #ffffff;
+
+  background: #ef4444;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .contato-header {
+    align-items: flex-start;
+  }
+
+  .header-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-submit,
+  .btn-outlined {
+    width: 100%;
+  }
 }

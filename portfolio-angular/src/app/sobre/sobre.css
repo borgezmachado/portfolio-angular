@@ -1,37 +1,526 @@
-mat-card {
-  max-width: 600px; /* Tamanho reduzido e focado */
-  margin: 50px auto;
-  padding: 28px;
-  background: #ffffff !important;
-  border-radius: 8px !important;
-  border: 1px solid #e0e0e0 !important;
-  box-shadow: none !important;
+/* =========================================================
+   PÁGINA SOBRE
+   ========================================================= */
+
+.sobre-page {
+  width: min(100% - 2rem, 900px);
+
+  margin: 3rem auto 4rem;
+
+  animation: pageEntrada 0.5s ease-out;
 }
 
-mat-card-title {
-  font-size: 1.5rem !important;
-  font-weight: 600 !important;
-  color: #1a1a1a;
-  margin-bottom: 2px !important;
-}
 
-mat-card-subtitle {
-  font-size: 0.9rem !important;
-  color: #757575 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px !important;
-}
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
 
-mat-card-content {
+.sobre-header {
   display: flex;
-  flex-direction: column;
-  gap: 16px; /* Espaçamento limpo entre parágrafos */
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 1.75rem;
 }
 
-mat-card-content p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #424242;
+.header-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #3f51b5,
+    #6366f1,
+    #7c3aed
+  );
+
+  box-shadow:
+    0 10px 25px rgba(63, 81, 181, 0.25);
+}
+
+.header-icon mat-icon {
+  width: 30px;
+  height: 30px;
+
+  font-size: 30px;
+}
+
+.header-content {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #6366f1;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.header-content h1 {
+  margin: 0 0 6px;
+
+  color: #1e293b;
+
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+}
+
+.header-content p {
   margin: 0;
+
+  max-width: 650px;
+
+  color: #64748b;
+
+  font-size: 0.96rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DIVISOR
+   ========================================================= */
+
+.header-divider {
+  height: 1px;
+
+  margin-bottom: 2rem;
+
+  background: linear-gradient(
+    90deg,
+    rgba(63, 81, 181, 0.25),
+    rgba(99, 102, 241, 0.08),
+    transparent
+  );
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.sobre-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 22px !important;
+
+  background: rgba(255, 255, 255, 0.97) !important;
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  box-shadow:
+    0 15px 40px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.sobre-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 22px 50px rgba(15, 23, 42, 0.11);
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+   ========================================================= */
+
+.card-top {
+  width: 100%;
+
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #3f51b5,
+    #6366f1,
+    #7c3aed
+  );
+}
+
+
+/* =========================================================
+   HEADER DO CARD
+   ========================================================= */
+
+.sobre-card mat-card-header {
+  padding: 25px 28px 20px;
+}
+
+.perfil-avatar {
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px !important;
+
+  color: #4f46e5;
+
+  background: linear-gradient(
+    135deg,
+    #eef2ff,
+    #ede9fe
+  ) !important;
+}
+
+.perfil-avatar mat-icon {
+  width: 25px;
+  height: 25px;
+
+  font-size: 25px;
+}
+
+.sobre-card mat-card-title {
+  margin-bottom: 5px;
+
+  color: #1e293b;
+
+  font-size: 1.25rem;
+
+  font-weight: 700;
+}
+
+.sobre-card mat-card-subtitle {
+  color: #64748b;
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.sobre-card mat-card-content {
+  padding: 5px 28px 25px;
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.sobre-section {
+  padding: 10px 0 25px;
+}
+
+.sobre-section + .sobre-section {
+  border-top: 1px solid #eef2f7;
+
+  padding-top: 25px;
+}
+
+
+/* =========================================================
+   TÍTULO DAS SEÇÕES
+   ========================================================= */
+
+.section-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 13px;
+}
+
+.section-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  color: #4f46e5;
+
+  background: linear-gradient(
+    135deg,
+    #eef2ff,
+    #f5f3ff
+  );
+}
+
+.section-icon mat-icon {
+  width: 20px;
+  height: 20px;
+
+  font-size: 20px;
+}
+
+.section-title h2 {
+  margin: 0 0 2px;
+
+  color: #334155;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+}
+
+.section-title span {
+  color: #94a3b8;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   PARÁGRAFOS
+   ========================================================= */
+
+.sobre-section p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.94rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   TECNOLOGIAS
+   ========================================================= */
+
+.tecnologias-section {
+  padding-top: 25px;
+
+  border-top: 1px solid #eef2f7;
+}
+
+.tech-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+}
+
+.tech-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px 12px;
+
+  border-radius: 9px;
+
+  color: #4338ca;
+
+  background: linear-gradient(
+    135deg,
+    #eef2ff,
+    #f5f3ff
+  );
+
+  border: 1px solid #e0e7ff;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tech-badge mat-icon {
+  width: 16px;
+  height: 16px;
+
+  font-size: 16px;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(79, 70, 229, 0.12);
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.sobre-card mat-card-actions {
+  margin: 0;
+
+  padding: 0 28px 25px;
+}
+
+.card-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  width: 100%;
+
+  padding: 13px 15px;
+
+  border-radius: 11px;
+
+  color: #4f46e5;
+
+  background: linear-gradient(
+    135deg,
+    #f5f7ff,
+    #faf5ff
+  );
+
+  border: 1px solid #e0e7ff;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+}
+
+.card-footer mat-icon {
+  width: 19px;
+  height: 19px;
+
+  font-size: 19px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .sobre-page {
+    width: calc(100% - 1.5rem);
+
+    margin-top: 1.5rem;
+  }
+
+  .sobre-header {
+    align-items: flex-start;
+
+    gap: 13px;
+  }
+
+  .header-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+  }
+
+  .header-icon mat-icon {
+    width: 25px;
+    height: 25px;
+
+    font-size: 25px;
+  }
+
+  .header-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .header-content p {
+    font-size: 0.88rem;
+  }
+
+  .sobre-card mat-card-header {
+    padding: 20px 18px 16px;
+  }
+
+  .sobre-card mat-card-content {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .sobre-card mat-card-actions {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .sobre-section p {
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+  }
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+   ========================================================= */
+
+@keyframes pageEntrada {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sobre-page,
+  .sobre-card,
+  .tech-badge {
+    animation: none;
+
+    transition: none;
+  }
+
 }
