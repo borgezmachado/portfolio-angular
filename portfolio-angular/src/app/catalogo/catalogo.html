@@ -1,13 +1,432 @@
+<div class="catalogo-page">
 
-@if (carregando) { <p>Carregando catalogo...</p> }
-@if (erro) { <p>{{ erro }}</p> }
+  <!-- ==========================================
+       HERO DO CATÁLOGO
+  =========================================== -->
 
-@for (t of tecnologias; track t.id) {
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ t.nome }}</mat-card-title>
-      <mat-card-subtitle>{{ t.categoria }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>{{ t.descricao }}</mat-card-content>
-  </mat-card>
-}
+  <section class="catalogo-hero">
+
+    <div class="hero-background">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+    </div>
+
+    <div class="catalogo-hero-content">
+
+      <div class="hero-icon">
+        <mat-icon>inventory_2</mat-icon>
+      </div>
+
+      <span class="hero-overline">
+        MEU CATÁLOGO
+      </span>
+
+      <h1>
+        Tecnologias &
+        <span>Conhecimentos</span>
+      </h1>
+
+      <p>
+        Explore as tecnologias, ferramentas e conhecimentos
+        que fazem parte da minha jornada como desenvolvedor.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       CONTEÚDO
+  =========================================== -->
+
+  <main class="catalogo-container">
+
+    <!-- ==========================================
+         BARRA DE PESQUISA
+    =========================================== -->
+
+    <section class="filtros-section">
+
+      <div class="filtros-header">
+
+        <div>
+
+          <span class="section-label">
+            EXPLORAR
+          </span>
+
+          <h2>
+            Encontre uma tecnologia
+          </h2>
+
+        </div>
+
+        <div class="contador">
+
+          <mat-icon>
+            developer_board
+          </mat-icon>
+
+          <span>
+            {{ tecnologiasFiltradas.length }}
+            tecnologias
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="filtros">
+
+        <!-- PESQUISA -->
+
+        <mat-form-field
+          appearance="outline"
+          class="campo-pesquisa">
+
+          <mat-label>
+            Pesquisar tecnologia
+          </mat-label>
+
+          <mat-icon matPrefix>
+            search
+          </mat-icon>
+
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="busca"
+            (input)="filtrarTecnologias()"
+            placeholder="Ex: Angular, Java, CSS..." />
+
+          @if (busca) {
+
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              aria-label="Limpar pesquisa"
+              (click)="limparBusca()">
+
+              <mat-icon>
+                close
+              </mat-icon>
+
+            </button>
+
+          }
+
+        </mat-form-field>
+
+
+        <!-- CATEGORIA -->
+
+        <mat-form-field
+          appearance="outline"
+          class="campo-categoria">
+
+          <mat-label>
+            Categoria
+          </mat-label>
+
+          <mat-icon matPrefix>
+            category
+          </mat-icon>
+
+          <mat-select
+            [(ngModel)]="categoriaSelecionada"
+            (selectionChange)="filtrarTecnologias()">
+
+            <mat-option value="">
+              Todas as categorias
+            </mat-option>
+
+            @for (categoria of categorias; track categoria) {
+
+              <mat-option [value]="categoria">
+                {{ categoria }}
+              </mat-option>
+
+            }
+
+          </mat-select>
+
+        </mat-form-field>
+
+
+        <!-- LIMPAR FILTROS -->
+
+        @if (busca || categoriaSelecionada) {
+
+          <button
+            mat-stroked-button
+            class="limpar-button"
+            type="button"
+            (click)="limparFiltros()">
+
+            <mat-icon>
+              filter_alt_off
+            </mat-icon>
+
+            Limpar
+
+          </button>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         CARREGANDO
+    =========================================== -->
+
+    @if (carregando) {
+
+      <section class="estado-container">
+
+        <div class="loading-icon">
+
+          <mat-icon>
+            sync
+          </mat-icon>
+
+        </div>
+
+        <h3>
+          Carregando catálogo...
+        </h3>
+
+        <p>
+          Buscando as tecnologias disponíveis.
+        </p>
+
+        <mat-progress-bar
+          mode="indeterminate">
+        </mat-progress-bar>
+
+      </section>
+
+    }
+
+
+    <!-- ==========================================
+         ERRO
+    =========================================== -->
+
+    @if (erro) {
+
+      <section class="estado-container erro-container">
+
+        <div class="estado-icon erro-icon">
+
+          <mat-icon>
+            error_outline
+          </mat-icon>
+
+        </div>
+
+        <h3>
+          Não foi possível carregar o catálogo
+        </h3>
+
+        <p>
+          {{ erro }}
+        </p>
+
+        <button
+          mat-flat-button
+          class="tentar-button"
+          type="button"
+          (click)="carregarTecnologias()">
+
+          <mat-icon>
+            refresh
+          </mat-icon>
+
+          Tentar novamente
+
+        </button>
+
+      </section>
+
+    }
+
+
+    <!-- ==========================================
+         CATÁLOGO
+    =========================================== -->
+
+    @if (!carregando && !erro) {
+
+      <section class="catalogo-section">
+
+        @if (tecnologiasFiltradas.length > 0) {
+
+          <div class="tecnologias-grid">
+
+            @for (
+              t of tecnologiasFiltradas;
+              track t.id
+            ) {
+
+              <mat-card
+                class="tecnologia-card">
+
+                <!-- TOPO DO CARD -->
+
+                <mat-card-header>
+
+                  <div
+                    mat-card-avatar
+                    class="tecnologia-avatar">
+
+                    <mat-icon>
+                      {{ obterIcone(t.categoria) }}
+                    </mat-icon>
+
+                  </div>
+
+                  <mat-card-title>
+                    {{ t.nome }}
+                  </mat-card-title>
+
+                  <mat-card-subtitle>
+                    {{ t.categoria }}
+                  </mat-card-subtitle>
+
+                </mat-card-header>
+
+
+                <!-- CONTEÚDO -->
+
+                <mat-card-content>
+
+                  <p class="descricao">
+                    {{ t.descricao }}
+                  </p>
+
+                  <div class="card-footer">
+
+                    <span class="categoria-badge">
+
+                      <mat-icon>
+                        label
+                      </mat-icon>
+
+                      {{ t.categoria }}
+
+                    </span>
+
+                    <span class="status-badge">
+
+                      <span class="status-dot"></span>
+
+                      Em evolução
+
+                    </span>
+
+                  </div>
+
+                </mat-card-content>
+
+              </mat-card>
+
+            }
+
+          </div>
+
+        }
+
+
+        <!-- ==========================================
+             NENHUM RESULTADO
+        =========================================== -->
+
+        @if (tecnologiasFiltradas.length === 0) {
+
+          <div class="sem-resultados">
+
+            <div class="sem-resultados-icon">
+
+              <mat-icon>
+                search_off
+              </mat-icon>
+
+            </div>
+
+            <h3>
+              Nenhuma tecnologia encontrada
+            </h3>
+
+            <p>
+              Não encontramos nenhuma tecnologia
+              correspondente aos filtros utilizados.
+            </p>
+
+            <button
+              mat-flat-button
+              class="limpar-resultados-button"
+              type="button"
+              (click)="limparFiltros()">
+
+              <mat-icon>
+                refresh
+              </mat-icon>
+
+              Limpar filtros
+
+            </button>
+
+          </div>
+
+        }
+
+      </section>
+
+    }
+
+  </main>
+
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+
+  <footer class="catalogo-footer">
+
+    <div class="footer-content">
+
+      <div class="footer-icon">
+
+        <mat-icon>
+          code
+        </mat-icon>
+
+      </div>
+
+      <div>
+
+        <strong>
+          Felipe Borges
+        </strong>
+
+        <span>
+          Atleta &amp; Desenvolvedor
+        </span>
+
+      </div>
+
+    </div>
+
+    <p>
+      Conhecimento é construído todos os dias.
+    </p>
+
+  </footer>
+
+</div>

@@ -1,0 +1,1280 @@
+/* =========================================================
+   CATÁLOGO
+   Identidade visual baseada no Home
+========================================================= */
+
+:host {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.catalogo-page {
+  min-height: 100vh;
+
+  color: #111827;
+
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(99, 102, 241, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 75%,
+      rgba(34, 211, 238, 0.13),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f7f8ff 55%,
+      #f1faff 100%
+    );
+
+  font-family:
+    Inter,
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.catalogo-hero {
+  position: relative;
+
+  min-height: 420px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding: 70px 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef0ff 0%,
+      #f7f8ff 48%,
+      #eafaff 100%
+    );
+
+  border-bottom:
+    1px solid #e3e7f5;
+}
+
+
+/* Grade de fundo */
+
+.catalogo-hero::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.55;
+
+  background-image:
+    linear-gradient(
+      rgba(79, 70, 229, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(79, 70, 229, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent
+    );
+}
+
+
+/* Brilhos */
+
+.catalogo-hero::after {
+  content: '';
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -150px;
+  top: -180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(99, 102, 241, 0.12);
+
+  filter: blur(70px);
+}
+
+
+/* =========================================================
+   BACKGROUND ELEMENTS
+========================================================= */
+
+.hero-background {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  opacity: 0.45;
+}
+
+.hero-glow-one {
+  width: 300px;
+  height: 300px;
+
+  left: -100px;
+  top: -100px;
+
+  background:
+    rgba(99, 102, 241, 0.2);
+}
+
+.hero-glow-two {
+  width: 300px;
+  height: 300px;
+
+  right: -100px;
+  bottom: -150px;
+
+  background:
+    rgba(34, 211, 238, 0.18);
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.catalogo-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+
+  text-align: center;
+}
+
+
+/* Ícone */
+
+.hero-icon {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin:
+    0 auto 22px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #2563eb
+    );
+
+  box-shadow:
+    0 15px 35px
+    rgba(79, 70, 229, 0.25);
+}
+
+.hero-icon mat-icon {
+  width: 34px;
+  height: 34px;
+
+  font-size: 34px;
+
+  color: white;
+}
+
+
+/* Texto pequeno */
+
+.hero-overline {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #4f46e5;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+}
+
+
+/* Título */
+
+.catalogo-hero h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size:
+    clamp(2.8rem, 6vw, 5rem);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  font-weight: 900;
+}
+
+.catalogo-hero h1 span {
+  display: block;
+
+  margin-top: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #4338ca 0%,
+      #4f46e5 45%,
+      #0891b2 100%
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* Descrição */
+
+.catalogo-hero p {
+  max-width: 680px;
+
+  margin:
+    25px auto 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.catalogo-container {
+  width: 100%;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding:
+    70px 30px 100px;
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.filtros-section {
+  margin-bottom: 50px;
+}
+
+
+/* Cabeçalho */
+
+.filtros-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 22px;
+}
+
+.section-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #4f46e5;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+}
+
+.filtros-header h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 28px;
+
+  font-weight: 850;
+
+  letter-spacing: -1px;
+}
+
+
+/* Contador */
+
+.contador {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    10px 15px;
+
+  border:
+    1px solid #dbe1f0;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 6px 20px
+    rgba(79, 70, 229, 0.05);
+}
+
+.contador mat-icon {
+  width: 19px;
+  height: 19px;
+
+  font-size: 19px;
+
+  color: #4f46e5;
+}
+
+
+/* =========================================================
+   ÁREA DOS FILTROS
+========================================================= */
+
+.filtros {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  border:
+    1px solid #dbe1f0;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 12px 35px
+    rgba(79, 70, 229, 0.07);
+}
+
+
+/* Campos */
+
+.campo-pesquisa {
+  flex: 1;
+
+  min-width: 250px;
+}
+
+.campo-categoria {
+  width: 260px;
+}
+
+.filtros mat-form-field {
+  margin-bottom: -1.25em;
+}
+
+
+/* =========================================================
+   ANGULAR MATERIAL - INPUTS
+========================================================= */
+
+.filtros
+.mat-mdc-text-field-wrapper {
+  background: #ffffff !important;
+}
+
+.filtros
+.mat-mdc-form-field-icon-prefix,
+.filtros
+.mat-mdc-form-field-icon-suffix {
+  color: #64748b;
+}
+
+.filtros
+.mat-mdc-input-element {
+  color: #111827 !important;
+}
+
+.filtros
+.mat-mdc-input-element::placeholder {
+  color: #94a3b8 !important;
+}
+
+.filtros
+.mat-mdc-floating-label {
+  color: #64748b !important;
+}
+
+
+/* =========================================================
+   BOTÃO LIMPAR
+========================================================= */
+
+.limpar-button {
+  height: 56px;
+
+  padding:
+    0 18px;
+
+  border:
+    1px solid #cdd5e8 !important;
+
+  border-radius: 11px !important;
+
+  color: #4f46e5 !important;
+
+  background: #ffffff !important;
+
+  white-space: nowrap;
+
+  transition:
+    all 0.25s ease;
+}
+
+.limpar-button:hover {
+  color: white !important;
+
+  border-color:
+    #4f46e5 !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #2563eb
+    ) !important;
+
+  box-shadow:
+    0 8px 20px
+    rgba(79, 70, 229, 0.2);
+}
+
+.limpar-button mat-icon {
+  margin-right: 6px;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.estado-container {
+  max-width: 650px;
+
+  margin:
+    60px auto;
+
+  padding:
+    55px 30px;
+
+  text-align: center;
+
+  border:
+    1px solid #dbe1f0;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 15px 40px
+    rgba(79, 70, 229, 0.08);
+}
+
+
+/* Ícone de loading */
+
+.loading-icon,
+.estado-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin:
+    0 auto 20px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef0ff,
+      #e8faff
+    );
+
+  color: #4f46e5;
+}
+
+.loading-icon mat-icon {
+  font-size: 32px;
+
+  animation:
+    girar 1.2s linear infinite;
+}
+
+
+/* Textos */
+
+.estado-container h3 {
+  margin:
+    0 0 8px;
+
+  color: #111827;
+
+  font-size: 21px;
+}
+
+.estado-container p {
+  margin: 0;
+
+  color: #64748b;
+
+  line-height: 1.7;
+}
+
+
+/* Progress */
+
+.estado-container mat-progress-bar {
+  margin-top: 25px;
+
+  border-radius: 10px;
+}
+
+
+/* Erro */
+
+.erro-container {
+  border-color:
+    rgba(239, 68, 68, 0.2);
+}
+
+.erro-icon {
+  background:
+    #fff1f2;
+
+  color:
+    #ef4444;
+}
+
+
+/* =========================================================
+   BOTÃO TENTAR NOVAMENTE
+========================================================= */
+
+.tentar-button {
+  height: 45px;
+
+  margin-top: 25px;
+
+  padding:
+    0 20px;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #2563eb
+    ) !important;
+
+  color: white !important;
+
+  box-shadow:
+    0 10px 25px
+    rgba(79, 70, 229, 0.2);
+}
+
+.tentar-button mat-icon {
+  margin-right: 7px;
+}
+
+
+/* =========================================================
+   GRID DE TECNOLOGIAS
+========================================================= */
+
+.tecnologias-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.tecnologia-card {
+  position: relative;
+
+  min-height: 260px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #dbe1f0;
+
+  border-radius: 20px !important;
+
+  background: #ffffff !important;
+
+  box-shadow:
+    0 10px 30px
+    rgba(79, 70, 229, 0.055) !important;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* Barra colorida superior */
+
+.tecnologia-card::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #4338ca,
+      #4f46e5,
+      #0891b2
+    );
+
+  transform:
+    scaleX(0);
+
+  transform-origin: left;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* Brilho */
+
+.tecnologia-card::after {
+  content: '';
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  right: -90px;
+  bottom: -90px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(99, 102, 241, 0.08);
+
+  filter: blur(25px);
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* Hover */
+
+.tecnologia-card:hover {
+  transform:
+    translateY(-7px);
+
+  border-color:
+    rgba(79, 70, 229, 0.28);
+
+  box-shadow:
+    0 20px 45px
+    rgba(79, 70, 229, 0.13) !important;
+}
+
+.tecnologia-card:hover::before {
+  transform:
+    scaleX(1);
+}
+
+.tecnologia-card:hover::after {
+  transform:
+    scale(1.5);
+}
+
+
+/* =========================================================
+   HEADER DO CARD
+========================================================= */
+
+.tecnologia-card mat-card-header {
+  padding:
+    25px 25px 10px;
+}
+
+
+/* Avatar */
+
+.tecnologia-avatar {
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef0ff,
+      #e9faff
+    ) !important;
+
+  color: #4f46e5;
+
+  border:
+    1px solid #e0e5f7;
+}
+
+.tecnologia-avatar mat-icon {
+  width: 22px;
+  height: 22px;
+
+  font-size: 22px;
+}
+
+
+/* Título */
+
+.tecnologia-card mat-card-title {
+  color: #111827;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+
+/* Categoria */
+
+.tecnologia-card mat-card-subtitle {
+  margin-top: 4px;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.tecnologia-card mat-card-content {
+  padding:
+    10px 25px 25px;
+}
+
+.descricao {
+  min-height: 70px;
+
+  margin:
+    10px 0 20px;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   RODAPÉ DO CARD
+========================================================= */
+
+.card-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding-top: 15px;
+
+  border-top:
+    1px solid #edf0f7;
+}
+
+
+/* Categoria */
+
+.categoria-badge {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #4f46e5;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.categoria-badge mat-icon {
+  width: 15px;
+  height: 15px;
+
+  font-size: 15px;
+}
+
+
+/* Status */
+
+.status-badge {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(34, 197, 94, 0.1);
+}
+
+
+/* =========================================================
+   SEM RESULTADOS
+========================================================= */
+
+.sem-resultados {
+  padding:
+    75px 30px;
+
+  text-align: center;
+
+  border:
+    1px dashed #cbd5e8;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.7);
+}
+
+.sem-resultados-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin:
+    0 auto 20px;
+
+  border-radius: 20px;
+
+  background:
+    #eef0ff;
+
+  color:
+    #818cf8;
+}
+
+.sem-resultados-icon mat-icon {
+  font-size: 32px;
+}
+
+.sem-resultados h3 {
+  margin:
+    0 0 10px;
+
+  color: #111827;
+
+  font-size: 21px;
+}
+
+.sem-resultados p {
+  max-width: 450px;
+
+  margin:
+    0 auto;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOTÃO DE LIMPAR RESULTADOS
+========================================================= */
+
+.limpar-resultados-button {
+  height: 45px;
+
+  margin-top: 25px;
+
+  padding:
+    0 20px;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #2563eb
+    ) !important;
+
+  color: white !important;
+
+  box-shadow:
+    0 10px 25px
+    rgba(79, 70, 229, 0.2);
+}
+
+.limpar-resultados-button mat-icon {
+  margin-right: 7px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.catalogo-footer {
+  padding:
+    50px 30px;
+
+  border-top:
+    1px solid #e1e6f2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f1f3ff,
+      #f7fcff
+    );
+
+  color: #111827;
+
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.footer-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4338ca,
+      #4f46e5,
+      #0891b2
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(79, 70, 229, 0.2);
+}
+
+.footer-icon mat-icon {
+  font-size: 23px;
+
+  color: white;
+}
+
+.footer-content > div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 3px;
+}
+
+.footer-content strong {
+  color: #111827;
+
+  font-size: 14px;
+}
+
+.footer-content span {
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.catalogo-footer p {
+  margin:
+    20px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes girar {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .tecnologias-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .catalogo-hero {
+    min-height: 390px;
+
+    padding:
+      60px 20px;
+  }
+
+  .catalogo-hero-content {
+    padding: 20px;
+  }
+
+  .catalogo-hero h1 {
+    font-size: 3rem;
+
+    letter-spacing: -2px;
+  }
+
+  .catalogo-hero p {
+    font-size: 14px;
+  }
+
+  .catalogo-container {
+    padding:
+      50px 20px 70px;
+  }
+
+  .filtros-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .filtros {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 15px;
+  }
+
+  .campo-pesquisa,
+  .campo-categoria {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  .limpar-button {
+    width: 100%;
+  }
+
+  .tecnologias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tecnologia-card {
+    min-height: auto;
+  }
+
+  .descricao {
+    min-height: auto;
+  }
+
+  .card-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .catalogo-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .filtros-header h2 {
+    font-size: 24px;
+  }
+
+}
