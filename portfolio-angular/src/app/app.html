@@ -1,50 +1,295 @@
-<!-- Barra Superior Fixa com Links de Navegação -->
+<!-- =========================================================
+     BARRA SUPERIOR
+========================================================= -->
+
 <mat-toolbar class="top-navbar">
-  <button mat-icon-button (click)="sidenav.toggle()" class="menu-toggle-btn">
+
+  <!-- Botão menu -->
+  <button
+    mat-icon-button
+    (click)="sidenav.toggle()"
+    class="menu-toggle-btn"
+    aria-label="Abrir menu"
+  >
     <mat-icon>menu</mat-icon>
   </button>
-  <span class="brand-title">Meu Portfólio</span>
-  
-  <span class="espacador"></span>
-  
-  <!-- Navegação de Topo -->
-  <div class="top-nav-links">
-    <a mat-button routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a mat-button routerLink="/sobre" routerLinkActive="ativo">Sobre</a>
-    <a mat-button routerLink="/projetos" routerLinkActive="ativo">Projetos</a>
-    <a mat-button routerLink="/contato" routerLinkActive="ativo">Contato</a>
+
+
+  <!-- Marca -->
+  <div class="brand">
+
+    <div class="brand-icon">
+      <mat-icon>code</mat-icon>
+    </div>
+
+    <div class="brand-text">
+      <span class="brand-title">
+        Felipe Borges
+      </span>
+
+      <span class="brand-subtitle">
+        Portfólio
+      </span>
+    </div>
+
   </div>
+
+
+  <span class="espacador"></span>
+
+
+  <!-- Navegação desktop -->
+  <nav class="top-nav-links">
+
+    <a
+      mat-button
+      routerLink="/"
+      routerLinkActive="ativo"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </a>
+
+
+    <a
+      mat-button
+      routerLink="/sobre"
+      routerLinkActive="ativo"
+    >
+      <mat-icon>person</mat-icon>
+      <span>Sobre</span>
+    </a>
+
+
+    <a
+      mat-button
+      routerLink="/projetos"
+      routerLinkActive="ativo"
+    >
+      <mat-icon>folder_open</mat-icon>
+      <span>Projetos</span>
+    </a>
+
+
+    <a
+      mat-button
+      routerLink="/catalogo"
+      routerLinkActive="ativo"
+    >
+      <mat-icon>inventory_2</mat-icon>
+      <span>Catálogo</span>
+    </a>
+
+
+    <a
+      mat-button
+      routerLink="/contato"
+      routerLinkActive="ativo"
+    >
+      <mat-icon>mail_outline</mat-icon>
+      <span>Contato</span>
+    </a>
+
+
+    <a
+      mat-button
+      routerLink="/gestao"
+      routerLinkActive="ativo"
+    >
+      <mat-icon>settings</mat-icon>
+      <span>Gestão</span>
+    </a>
+
+  </nav>
+
 </mat-toolbar>
 
-<!-- Container do Menu Lateral e Conteúdo -->
+
+<!-- =========================================================
+     SIDEBAR + CONTEÚDO
+========================================================= -->
+
 <mat-sidenav-container class="sidenav-container">
-  
-  <!-- Menu Lateral (Sidenav) também com Links -->
-  <mat-sidenav #sidenav mode="side" opened class="sidebar">
+
+
+  <!-- =======================================================
+       SIDEBAR
+  ======================================================== -->
+
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    opened
+    class="sidebar"
+  >
+
+    <!-- Cabeçalho -->
+    <div class="sidebar-header">
+
+      <div class="sidebar-logo">
+        <mat-icon>terminal</mat-icon>
+      </div>
+
+      <div>
+        <strong>Meu Portfólio</strong>
+
+        <span>
+          Atleta & Desenvolvedor
+        </span>
+      </div>
+
+    </div>
+
+
+    <!-- Separador -->
+    <div class="sidebar-divider"></div>
+
+
+    <!-- Label -->
+    <span class="sidebar-label">
+      NAVEGAÇÃO
+    </span>
+
+
+    <!-- Links -->
     <nav class="sidebar-nav">
-      <a mat-button routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">
-        <mat-icon>home</mat-icon> Home
+
+
+      <!-- Home -->
+      <a
+        mat-button
+        routerLink="/"
+        routerLinkActive="ativo"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <span class="nav-icon">
+          <mat-icon>home</mat-icon>
+        </span>
+
+        <span class="nav-text">
+          Home
+        </span>
       </a>
-      <a mat-button routerLink="/sobre" routerLinkActive="ativo">
-        <mat-icon>person</mat-icon> Sobre
+
+
+      <!-- Sobre -->
+      <a
+        mat-button
+        routerLink="/sobre"
+        routerLinkActive="ativo"
+      >
+        <span class="nav-icon">
+          <mat-icon>person_outline</mat-icon>
+        </span>
+
+        <span class="nav-text">
+          Sobre mim
+        </span>
       </a>
-      <a mat-button routerLink="/projetos" routerLinkActive="ativo">
-        <mat-icon>folder</mat-icon> Projetos
+
+
+      <!-- Projetos -->
+      <a
+        mat-button
+        routerLink="/projetos"
+        routerLinkActive="ativo"
+      >
+        <span class="nav-icon">
+          <mat-icon>folder_open</mat-icon>
+        </span>
+
+        <span class="nav-text">
+          Projetos
+        </span>
       </a>
-      <a mat-button routerLink="/contato" routerLinkActive="ativo">
-        <mat-icon>mail</mat-icon> Contato
+
+
+      <!-- Catálogo -->
+      <a
+        mat-button
+        routerLink="/catalogo"
+        routerLinkActive="ativo"
+      >
+        <span class="nav-icon">
+          <mat-icon>inventory_2</mat-icon>
+        </span>
+
+        <span class="nav-text">
+          Catálogo
+        </span>
       </a>
-      <a mat-button routerLink="/catalogo" routerLinkActive="ativo">Catálogo
-        <mat-icon> inventory_2 </mat-icon>
+
+
+      <!-- Contato -->
+      <a
+        mat-button
+        routerLink="/contato"
+        routerLinkActive="ativo"
+      >
+        <span class="nav-icon">
+          <mat-icon>mail_outline</mat-icon>
+        </span>
+
+        <span class="nav-text">
+          Contato
+        </span>
       </a>
+
+
+      <!-- Gestão -->
+      <a
+        mat-button
+        routerLink="/gestao"
+        routerLinkActive="ativo"
+      >
+        <span class="nav-icon">
+          <mat-icon>settings</mat-icon>
+        </span>
+
+        <span class="nav-text">
+          Gestão
+        </span>
+      </a>
+
     </nav>
+
+
+    <!-- =====================================================
+         CARD INFERIOR
+    ====================================================== -->
+
+    <div class="sidebar-bottom">
+
+      <div class="sidebar-status">
+
+        <span class="status-indicator"></span>
+
+        <div>
+          <strong>Disponível</strong>
+
+          <small>
+            para novos desafios
+          </small>
+        </div>
+
+      </div>
+
+    </div>
+
   </mat-sidenav>
 
-  <!-- Área do Conteúdo Principal -->
+
+  <!-- =======================================================
+       CONTEÚDO
+  ======================================================== -->
+
   <mat-sidenav-content class="main-content">
+
     <main>
       <router-outlet></router-outlet>
     </main>
+
   </mat-sidenav-content>
 
 </mat-sidenav-container>

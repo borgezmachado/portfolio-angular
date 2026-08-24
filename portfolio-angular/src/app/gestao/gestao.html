@@ -1,0 +1,669 @@
+<section class="gestao">
+
+
+  <!-- =====================================================
+       NOTIFICAÇÃO
+       ===================================================== -->
+
+  @if (mensagem) {
+
+    <div
+      class="toast"
+      [class.toast-sucesso]="tipoMensagem === 'sucesso'"
+      [class.toast-erro]="tipoMensagem === 'erro'"
+      [class.toast-info]="tipoMensagem === 'info'"
+      [class.toast-aviso]="tipoMensagem === 'aviso'"
+      role="status"
+    >
+
+      <div class="toast-icon">
+
+        @if (tipoMensagem === 'sucesso') {
+          ✓
+        }
+
+        @if (tipoMensagem === 'erro') {
+          !
+        }
+
+        @if (tipoMensagem === 'info') {
+          i
+        }
+
+        @if (tipoMensagem === 'aviso') {
+          ⚠
+        }
+
+      </div>
+
+
+      <div class="toast-content">
+
+        <strong>
+
+          @if (tipoMensagem === 'sucesso') {
+            Sucesso
+          }
+
+          @if (tipoMensagem === 'erro') {
+            Erro
+          }
+
+          @if (tipoMensagem === 'info') {
+            Informação
+          }
+
+          @if (tipoMensagem === 'aviso') {
+            Atenção
+          }
+
+        </strong>
+
+        <span>
+          {{ mensagem }}
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="toast-close"
+        (click)="mensagem = ''"
+        aria-label="Fechar mensagem"
+      >
+        ×
+      </button>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       CABEÇALHO
+       ===================================================== -->
+
+  <header class="gestao-header">
+
+    <div class="gestao-header-content">
+
+      <div class="gestao-eyebrow">
+
+        <span class="status-dot"></span>
+
+        Painel administrativo
+
+      </div>
+
+
+      <h1>
+        Área de Gestão
+      </h1>
+
+
+      <p>
+        Gerencie os projetos do seu portfólio.
+        Adicione, edite ou remova seus projetos.
+      </p>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       ERRO GERAL
+       ===================================================== -->
+
+  @if (erro) {
+
+    <div
+      class="alert alert-error"
+      role="alert"
+    >
+
+      <span class="alert-icon">
+        !
+      </span>
+
+      <div>
+
+        <strong>
+          Ocorreu um problema
+        </strong>
+
+        <p>
+          {{ erro }}
+        </p>
+
+      </div>
+
+    </div>
+
+  }
+
+
+
+  <!-- =====================================================
+       CONTEÚDO
+       ===================================================== -->
+
+  <div class="gestao-grid">
+
+
+    <!-- ===================================================
+         FORMULÁRIO
+         =================================================== -->
+
+    <article class="gestao-card formulario-card">
+
+
+      <div class="card-header">
+
+        <div class="card-heading">
+
+          <div class="card-icon card-icon-primary">
+            ✦
+          </div>
+
+          <div>
+
+            <h2>
+
+              {{
+                editandoId !== null
+                  ? 'Editar projeto'
+                  : 'Novo projeto'
+              }}
+
+            </h2>
+
+            <p>
+
+              {{
+                editandoId !== null
+                  ? 'Atualize as informações do projeto.'
+                  : 'Adicione um novo projeto ao seu portfólio.'
+              }}
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        @if (editandoId !== null) {
+
+          <span class="modo-edicao">
+            Editando
+          </span>
+
+        } @else {
+
+          <span class="modo-adicao">
+            Novo
+          </span>
+
+        }
+
+      </div>
+
+
+
+      <!-- =================================================
+           FORM
+           ================================================= -->
+
+      <form
+        class="gestao-form"
+        [formGroup]="form"
+        (ngSubmit)="salvar()"
+      >
+
+
+        <!-- NOME -->
+
+        <div class="campo">
+
+          <label for="nome">
+
+            Nome do projeto
+
+            <span class="campo-obrigatorio">
+              *
+            </span>
+
+          </label>
+
+
+          <div class="input-wrapper">
+
+            <span class="input-icon">
+              ◇
+            </span>
+
+            <input
+              id="nome"
+              type="text"
+              formControlName="nome"
+              placeholder="Ex.: Sistema de Gestão"
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          @if (
+            form.controls.nome.touched &&
+            form.controls.nome.invalid
+          ) {
+
+            <p class="erro-campo">
+
+              <span>!</span>
+
+              Informe o nome do projeto
+              com pelo menos 3 caracteres.
+
+            </p>
+
+          }
+
+        </div>
+
+
+
+        <!-- DESCRIÇÃO -->
+
+        <div class="campo">
+
+          <label for="descricao">
+            Descrição
+          </label>
+
+          <textarea
+            id="descricao"
+            formControlName="descricao"
+            rows="5"
+            placeholder="Descreva brevemente o projeto..."
+          ></textarea>
+
+          <span class="campo-ajuda">
+            Explique o objetivo e as principais características
+            do projeto.
+          </span>
+
+        </div>
+
+
+
+        <!-- TECNOLOGIAS -->
+
+        <div class="campo">
+
+          <label for="tecnologias">
+            Tecnologias
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="input-icon">
+              &lt;/&gt;
+            </span>
+
+            <input
+              id="tecnologias"
+              type="text"
+              formControlName="tecnologias"
+              placeholder="Angular, TypeScript, CSS..."
+            >
+
+          </div>
+
+        </div>
+
+
+
+        <!-- GITHUB -->
+
+        <div class="campo">
+
+          <label for="link_github">
+            Link do GitHub
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="input-icon">
+              ↗
+            </span>
+
+            <input
+              id="link_github"
+              type="url"
+              formControlName="link_github"
+              placeholder="https://github.com/usuario/projeto"
+              autocomplete="url"
+            >
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ANO -->
+
+        <div class="campo campo-ano">
+
+          <label for="ano">
+
+            Ano
+
+            <span class="campo-obrigatorio">
+              *
+            </span>
+
+          </label>
+
+          <input
+            id="ano"
+            type="number"
+            formControlName="ano"
+            placeholder="2026"
+            min="2000"
+            max="2100"
+          >
+
+
+          @if (
+            form.controls.ano.touched &&
+            form.controls.ano.invalid
+          ) {
+
+            <p class="erro-campo">
+
+              <span>!</span>
+
+              Informe o ano do projeto.
+
+            </p>
+
+          }
+
+        </div>
+
+
+
+        <!-- =================================================
+             BOTÕES
+             ================================================= -->
+
+        <div class="gestao-acoes">
+
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="salvando"
+          >
+
+            @if (salvando) {
+
+              <span class="btn-spinner"></span>
+
+              Salvando...
+
+            } @else {
+
+              <span class="btn-symbol">
+
+                {{
+                  editandoId !== null
+                    ? '✓'
+                    : '+'
+                }}
+
+              </span>
+
+              {{
+                editandoId !== null
+                  ? 'Salvar alterações'
+                  : 'Adicionar projeto'
+              }}
+
+            }
+
+          </button>
+
+
+          @if (editandoId !== null) {
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="cancelarEdicao()"
+              [disabled]="salvando"
+            >
+
+              <span class="btn-symbol">
+                ×
+              </span>
+
+              Cancelar edição
+
+            </button>
+
+          }
+
+        </div>
+
+      </form>
+
+    </article>
+
+
+
+    <!-- ===================================================
+         PROJETOS
+         =================================================== -->
+
+    <article class="gestao-card projetos-card">
+
+
+      <div class="card-header">
+
+        <div class="card-heading">
+
+          <div class="card-icon card-icon-secondary">
+            ◈
+          </div>
+
+          <div>
+
+            <h2>
+              Projetos cadastrados
+            </h2>
+
+            <p>
+              Projetos disponíveis no seu portfólio.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <span class="contador">
+
+          {{ projetos.length }}
+
+          <span>
+            {{
+              projetos.length === 1
+                ? 'projeto'
+                : 'projetos'
+            }}
+          </span>
+
+        </span>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CARREGANDO
+           ================================================= -->
+
+      @if (carregando) {
+
+        <div class="estado">
+
+          <div class="loading-circle"></div>
+
+          <strong>
+            Carregando projetos
+          </strong>
+
+          <p>
+            Aguarde enquanto buscamos seus projetos...
+          </p>
+
+        </div>
+
+      }
+
+
+      <!-- =================================================
+           LISTA
+           ================================================= -->
+
+      @else {
+
+        <div class="projetos-lista">
+
+
+          @for (
+            p of projetos;
+            track p.id
+          ) {
+
+            <div
+              class="linha-projeto"
+              [class.projeto-editando]="editandoId === p.id"
+            >
+
+
+              <div class="projeto-avatar">
+
+                {{ p.nome.charAt(0).toUpperCase() }}
+
+              </div>
+
+
+
+              <div class="projeto-info">
+
+                <strong class="projeto-nome">
+                  {{ p.nome }}
+                </strong>
+
+
+                <div class="projeto-meta">
+
+                  <span class="projeto-ano">
+                    {{ p.ano }}
+                  </span>
+
+
+                  @if (p.tecnologias) {
+
+                    <span class="projeto-tecnologias">
+                      {{ p.tecnologias }}
+                    </span>
+
+                  }
+
+                </div>
+
+              </div>
+
+
+
+              <div class="projeto-acoes">
+
+                <button
+                  type="button"
+                  class="btn btn-editar"
+                  (click)="editar(p)"
+                >
+
+                  <span>
+                    ✎
+                  </span>
+
+                  Editar
+
+                </button>
+
+
+                <button
+                  type="button"
+                  class="btn btn-excluir"
+                  (click)="excluir(p)"
+                >
+
+                  <span>
+                    ×
+                  </span>
+
+                  Excluir
+
+                </button>
+
+              </div>
+
+            </div>
+
+          }
+
+
+
+          <!-- =================================================
+               NENHUM PROJETO
+               ================================================= -->
+
+          @if (projetos.length === 0) {
+
+            <div class="estado estado-vazio">
+
+              <div class="estado-icon">
+                ◇
+              </div>
+
+              <strong>
+                Nenhum projeto cadastrado
+              </strong>
+
+              <p>
+                Adicione seu primeiro projeto usando
+                o formulário ao lado.
+              </p>
+
+            </div>
+
+          }
+
+        </div>
+
+      }
+
+    </article>
+
+  </div>
+
+</section>
