@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,4 +19,11 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {}
+export class App {
+
+  @HostListener('window:beforeunload')
+  limparSessaoGeral() {
+    sessionStorage.removeItem('token');
+  }
+
+}

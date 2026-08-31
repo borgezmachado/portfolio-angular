@@ -1,0 +1,65 @@
+<div class="login-page">
+  <div class="login-card">
+    
+    <div class="login-header">
+      <div class="logo-icon">
+        <mat-icon>lock</mat-icon>
+      </div>
+      <h2>Área do Administrador</h2>
+      <p>Digite suas credenciais para acessar o painel de gestão.</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="fazerLogin()" class="login-form">
+      
+      <div class="form-field">
+        <label for="usuario">Usuário</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">person</mat-icon>
+          <input 
+            id="usuario" 
+            type="text" 
+            formControlName="usuario" 
+            placeholder="Digite seu usuário" 
+          />
+        </div>
+        @if (form.get('usuario')?.touched && form.get('usuario')?.invalid) {
+          <span class="erro-texto">O usuário é obrigatório.</span>
+        }
+      </div>
+
+      <div class="form-field">
+        <label for="senha">Senha</label>
+        <div class="input-wrapper">
+          <mat-icon class="input-icon">lock_outline</mat-icon>
+          <input 
+            id="senha" 
+            type="password" 
+            formControlName="senha" 
+            placeholder="Digite sua senha" 
+          />
+        </div>
+        @if (form.get('senha')?.touched && form.get('senha')?.invalid) {
+          <span class="erro-texto">A senha é obrigatória.</span>
+        }
+      </div>
+
+      @if (erro) {
+        <div class="mensagem-erro">
+          <mat-icon>error_outline</mat-icon>
+          <span>{{ erro }}</span>
+        </div>
+      }
+
+      <button type="submit" class="btn-submit" [disabled]="carregando">
+        @if (carregando) {
+          <span>Entrando...</span>
+        } @else {
+          <span>Acessar Gestão</span>
+          <mat-icon>arrow_forward</mat-icon>
+        }
+      </button>
+
+    </form>
+
+  </div>
+</div>

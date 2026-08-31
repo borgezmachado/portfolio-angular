@@ -1,4 +1,4 @@
-CREATE DATABASE dwii_db;
+
 CREATE USER 'dwii_user'@'localhost' IDENTIFIED BY 'dwii2026';
 GRANT ALL PRIVILEGES ON dwii_db.* TO 'dwii_user'@'localhost';
 FLUSH PRIVILEGES;

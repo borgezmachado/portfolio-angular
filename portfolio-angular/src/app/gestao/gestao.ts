@@ -1,4 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, HostListener } from '@angular/core'; // <--- HostListener ADICIONADO
+import { Router } from '@angular/router';
 import {
   FormGroup,
   FormControl,
@@ -17,6 +18,7 @@ import { ProjetoService, Projeto } from '../projeto.service';
 export class Gestao implements OnInit {
 
   private service = inject(ProjetoService);
+  private router = inject(Router);
 
   projetos: Projeto[] = [];
 
@@ -56,8 +58,21 @@ export class Gestao implements OnInit {
 
   });
 
+  // --- LIMPA O TOKEN AO ATUALIZAR (F5) OU FECHAR A PÁGINA ---
+  @HostListener('window:beforeunload')
+  limparSessaoAoSair() {
+    sessionStorage.removeItem('token');
+  }
 
   ngOnInit() {
+    // --- VERIFICAÇÃO DE LOGIN ADICIONADA ---
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    // ----------------------------------------
+
     this.carregar();
   }
 
