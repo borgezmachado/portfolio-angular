@@ -6,7 +6,6 @@
 CREATE DATABASE IF NOT EXISTS dwii_db
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
-
 -- Selecionar o banco
 USE dwii_db;
 
