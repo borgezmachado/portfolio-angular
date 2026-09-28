@@ -17,28 +17,30 @@ Repositório da disciplina **Desenvolvimento Web II** — 2026
 
 | Pasta / Arquivo | Conteúdo |
 | :--- | :--- |
-| `portfolio-angular/` | Diretório raiz do projeto desenvolvido em Angular |
-| `api/` | Endpoints da API em PHP (`projetos.php` e `tecnologias.php`) |
-| `api-node/` | API em Node.js com Express |
-| `conexao.php` | Configuração da conexão PDO com o banco de dados MariaDB |
+| `portfolio-angular/` | Aplicação Front-end desenvolvida em Angular |
+| `api-node/` | API Backend em Node.js com Express e MariaDB (`server.js`, `db.js`) |
+| `api/` | Endpoints legados da API em PHP (`projetos.php` e `tecnologias.php`) |
 | `sql/` | Scripts de banco de dados (`setup.sql`) |
+| `conexao.php` | Configuração de conexão PDO para a API em PHP |
+| `.gitignore` | Arquivos ignorados pelo Git (ex: `node_modules/`) |
 
 ---
 
-## 🌐 Páginas Publicadas / Principais Acessos (Front-end)
+## 🌐 Páginas do Front-end (Angular)
 
-* 📄 [Página Inicial / Home](http://localhost:4200)
-* 📄 [Sobre Mim](http://localhost:4200/sobre)
-* 📄 [Projetos Acadêmicos](http://localhost:4200/projetos)
-* 📄 [Contato](http://localhost:4200/contato)
+* 📄 **Home / Início:** `http://localhost:4200/`
+* 📄 **Projetos:** `http://localhost:4200/projetos`
+* 📄 **Catálogo / Tecnologias:** `http://localhost:4200/catalogo`
+* 📄 **Sobre Mim:** `http://localhost:4200/sobre`
+* 📄 **Contato:** `http://localhost:4200/contato`
 
 ---
 
-## 🚀 Como Rodar a API Backend (PHP)
+## 🚀 Como Rodar o Projeto
 
-### 1. Pré-requisitos e Instalação
-Certifique-se de estar em um ambiente com o PHP e o banco de dados MariaDB/MySQL configurados (como o ambiente padrão do GitHub Codespaces).
+### 1. Iniciar o Banco de Dados (MariaDB)
+No terminal do Codespaces, inicie o banco de dados e execute o script SQL de configuração:
 
-1. Clone o repositório (se ainda não o fez):
-   ```bash
-   git clone [https://github.com/borgezmachado/portfolio-angular.git](https://github.com/borgezmachado/portfolio-angular.git)
+```bash
+sudo service mariadb start
+sudo mariadb < sql/setup.sql

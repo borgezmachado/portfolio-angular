@@ -6,6 +6,7 @@
 CREATE DATABASE IF NOT EXISTS dwii_db
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
+
 -- Selecionar o banco
 USE dwii_db;
 
@@ -14,7 +15,6 @@ USE dwii_db;
 -- ============================================
 
 -- Cria o usuário somente se ele ainda não existir.
--- O bloco abaixo funciona em MariaDB/MySQL.
 CREATE USER IF NOT EXISTS 'dwii_user'@'localhost'
 IDENTIFIED BY 'dwii2026';
 
@@ -28,10 +28,18 @@ GRANT ALL PRIVILEGES ON dwii_db.* TO 'dwii_user'@'localhost';
 FLUSH PRIVILEGES;
 
 -- ============================================
+-- REMOÇÃO DE TABELAS ANTIGAS (Evita duplicação)
+-- ============================================
+
+DROP TABLE IF EXISTS contatos;
+DROP TABLE IF EXISTS projetos;
+DROP TABLE IF EXISTS tecnologias;
+
+-- ============================================
 -- TABELA: projetos
 -- ============================================
 
-CREATE TABLE IF NOT EXISTS projetos (
+CREATE TABLE projetos (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(120) NOT NULL,
     descricao TEXT NOT NULL,
@@ -52,7 +60,7 @@ CREATE TABLE IF NOT EXISTS projetos (
 -- TABELA: tecnologias
 -- ============================================
 
-CREATE TABLE IF NOT EXISTS tecnologias (
+CREATE TABLE tecnologias (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
@@ -70,7 +78,7 @@ CREATE TABLE IF NOT EXISTS tecnologias (
 -- TABELA: contatos
 -- ============================================
 
-CREATE TABLE IF NOT EXISTS contatos (
+CREATE TABLE contatos (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(120) NOT NULL,
     email VARCHAR(180) NOT NULL,
@@ -187,23 +195,8 @@ VALUES
 
 SHOW TABLES;
 
-SELECT
-    id,
-    nome,
-    ano,
-    status
-FROM projetos;
+SELECT id, nome, ano, status FROM projetos;
 
-SELECT
-    id,
-    nome,
-    categoria,
-    status
-FROM tecnologias;
+SELECT id, nome, categoria, status FROM tecnologias;
 
-SELECT
-    id,
-    nome,
-    email,
-    criado_em
-FROM contatos;
+SELECT id, nome, email, criado_em FROM contatos;
