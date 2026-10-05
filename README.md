@@ -41,6 +41,9 @@ Repositório da disciplina **Desenvolvimento Web II** — 2026
 ### 1. Iniciar o Banco de Dados (MariaDB)
 No terminal do Codespaces, inicie o banco de dados e execute o script SQL de configuração:
 
+curl -i -X POST http://localhost:3000/api/projetos -H "Content-Type: application/json" -d '{"nome":"Novo Projeto"}'
+curl -i -X PUT http://localhost:3000/api/projetos/7 -H "Content-Type: application/json" -d '{"nome":"Projeto Atualizado"}'
+curl -i -X DELETE http://localhost:3000/api/projetos/7
 ```bash
 sudo service mariadb start
 sudo mariadb < sql/setup.sql
