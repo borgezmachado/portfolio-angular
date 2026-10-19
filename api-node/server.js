@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const pool = require('./db');
 
 const app = express();
 const PORTA = 3000;
-
-// Habilita o CORS para o Angular conseguir consumir a API
+// A chave que assina os tokens. Fica aqui so ate a Aula 29, quando vai para o
+const SEGREDO = 'troque-por-uma-frase-longa-que-so-voce-sabe';
 app.use(cors());
 
 app.use(express.json());
@@ -35,6 +37,7 @@ const projetos = [
     link_github: null,
     ano: 2026
   }
+  
 ];
 
 // Lista com tecnologias (4 campos: nome, categoria, descricao, ano_criacao)
@@ -49,8 +52,45 @@ const tecnologias = [
 
 // Rotas da API
 
+// POST /api/login: confere email e senha e devolve o token. A unica rota que
+app.post('/api/login', async (req, res) => {
+    try {
+        const dados = req.body;
+        if (!dados || !dados.email || !dados.senha) {
+            return res.status(400).json({ erro: 'Informe email e senha' });
+        }
+        const [linhas] = await pool.execute('SELECT id, email, senha_hash FROM usuarios WHERE email = ?', [dados.email]);
+        const usuario = linhas[0];
+        if (!usuario) {
+            return res.status(401).json({ erro: 'Email ou senha invalidos' });
+        }
+        const confere = await bcrypt.compare(dados.senha, usuario.senha_hash);
+        if (!confere) {
+            return res.status(401).json({ erro: 'Email ou senha invalidos' });
+        }
+        const token = jwt.sign({ id: usuario.id, email: usuario.email }, SEGREDO, { expiresIn: '1h' });
+        res.json({ token });
+    } catch (erro) {
+        res.status(500).json({ erro: 'Falha no servidor: ' + erro.message });
+    }
+});
+
+// Middleware: confere o token antes de a rota rodar. Entra so nas rotas que o
+function autenticar(req, res, next) {
+    const cabecalho = req.headers.authorization ?? '';
+    const token = cabecalho.replace('Bearer ', '');
+    if (!token) {
+        return res.status(401).json({ erro: 'Token ausente' });
+    }
+    try {
+        req.usuario = jwt.verify(token, SEGREDO);
+        next();
+    } catch (erro) {
+        return res.status(401).json({ erro: 'Token invalido ou expirado' });
+    }
+}
 // O mesmo SELECT do api/projetos.php: so os publicados, do mais novo ao mais antigo
-app.get('/api/projetos', async (req, res) => {
+app.get('/api/projetos', autenticar, async (req, res) => {
   try {
     const sql = "SELECT id, nome, descricao, tecnologias, link_github, ano FROM projetos WHERE status = 'publicado' ORDER BY ano DESC, id DESC";
     const [projetos] = await pool.query(sql);
@@ -61,14 +101,26 @@ app.get('/api/projetos', async (req, res) => {
 });
 
 // Um projeto pelo id. O ? e o mesmo do prepare do PHP: o valor nunca entra na query direto
+// Rota para buscar um projeto por ID (Pública)
 app.get('/api/projetos/:id', async (req, res) => {
   try {
     const sql = "SELECT id, nome, descricao, tecnologias, link_github, ano FROM projetos WHERE id = ? AND status = 'publicado'";
     const [linhas] = await pool.execute(sql, [req.params.id]);
+    
     if (linhas.length === 0) {
       return res.status(404).json({ erro: 'Projeto nao encontrado' });
     }
+    
     res.json(linhas[0]);
+  } catch (erro) {
+    res.status(500).json({ erro: 'Falha no servidor: ' + erro.message });
+  }
+});
+
+// Rota para atualizar um projeto (Protegida por autenticação)
+app.put('/api/projetos/:id', autenticar, async (req, res) => {
+  try {
+    // Insira aqui a lógica de atualização (UPDATE) no banco de dados
   } catch (erro) {
     res.status(500).json({ erro: 'Falha no servidor: ' + erro.message });
   }
@@ -141,6 +193,7 @@ app.get('/api/tecnologias', async (req, res) => {
     res.status(500).json({ erro: 'Falha no servidor: ' + erro.message });
   }
 });
+
 
 app.listen(PORTA, () => {
   console.log('API no ar em http://localhost:' + PORTA);

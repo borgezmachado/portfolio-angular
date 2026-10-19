@@ -47,3 +47,4 @@ curl -i -X DELETE http://localhost:3000/api/projetos/7
 ```bash
 sudo service mariadb start
 sudo mariadb < sql/setup.sql
+sudo mariadb dwii_db < sql/usuarios.sql
