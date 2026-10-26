@@ -35,6 +35,17 @@ Repositório da disciplina **Desenvolvimento Web II** — 2026
 - 📄 **Contato:** `http://localhost:4200/contato`
 
 ---
+---
+
+## ⚛️ Aula 25 — Front-end em React com Vite
+
+Esta versão do portfólio foi recriada utilizando a biblioteca **React** com o bundler **Vite**.
+
+### 🚀 Como Rodar o Projeto React
+
+1. Acesse a pasta do projeto React:
+   ```bash
+   cd portfolio-react
 
 ## 🚀 Como Rodar o Projeto
 

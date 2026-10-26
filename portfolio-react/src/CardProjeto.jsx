@@ -1,12 +1,17 @@
-// CardProjeto: um projeto do Portfolio. Os dados chegam de fora, pelas props.
-// Entre chaves, no parametro, os nomes das props que o card usa.
-function CardProjeto({ nome, descricao, tecnologias, link_github, ano }) {
+// CardProjeto: exibe os dados do projeto a partir do objeto 'projeto' (Interface Projeto).
+function CardProjeto({ projeto }) {
   return (
     <article className="card">
-      <h3>{nome}</h3>
-      <p className="meta">{tecnologias} · {ano}</p>
-      <p>{descricao}</p>
-      <a href={link_github}>Ver no GitHub</a>
+      <h3>{projeto.nome}</h3>
+      <p className="meta">{projeto.tecnologias} · {projeto.ano}</p>
+      <p>{projeto.descricao}</p>
+      
+      {/* O botão "Ver no GitHub" só é renderizado se existir link_github */}
+      {projeto.link_github && (
+        <a href={projeto.link_github} target="_blank" rel="noopener noreferrer">
+          Ver no GitHub
+        </a>
+      )}
     </article>
   );
 }
