@@ -1,27 +1,32 @@
 :root {
-  /* Cores Principais - Palette Angular */
-  --primary: #0f62fe;          /* Azul principal Angular */
-  --primary-hover: #0043ce;    /* Azul escuro para hover */
-  --accent: #1192e8;           /* Azul secundário/destaque */
-  
-  /* Cores Neutras */
-  --bg-page: #f4f7fb;          /* Fundo suave da página */
-  --bg-card: #ffffff;          /* Cards em branco puro */
-  --footer-bg: #e0e0e0;        /* Rodapé em tom de cinza */
-  
+  /* Cores Principais - Preto e Amarelo */
+  --primary: #facc15;          /* Amarelo vibrante */
+  --primary-hover: #eab308;    /* Amarelo mais escuro para hover */
+  --accent: #ca8a04;           /* Amarelo escuro / Destaques */
+
+  /* Cores Neutras Escuras (Preto e Tons de Cinza) */
+  --bg-page: #0f0f11;          /* Fundo quase preto */
+  --bg-card: #18181b;          /* Fundo dos cartões em cinza-escuro */
+  --bg-input: #27272a;         /* Fundo dos campos de texto */
+  --footer-bg: #111113;        /* Fundo do rodapé */
+
   /* Tipografia */
-  --text-main: #393939;        /* Texto principal escuro */
-  --text-muted: #6f6f6f;       /* Texto secundário/suave */
-  --text-heading: #161616;     /* Títulos em destaque */
-  
+  --text-main: #f4f4f5;        /* Texto principal claro */
+  --text-muted: #a1a1aa;       /* Texto secundário */
+  --text-heading: #ffffff;     /* Títulos em branco */
+  --btn-text: #000000;         /* Texto dos botões em preto */
+
   /* Estrutura & Bordas */
-  --border-color: #e0e0e0;
+  --border-color: #27272a;
   --radius-card: 12px;
-  --radius-btn: 8px;
-  --shadow-card: 0 4px 16px rgba(15, 98, 254, 0.08);
-  --shadow-hover: 0 8px 24px rgba(15, 98, 254, 0.16);
-  --font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --radius-btn: 6px;
+  --radius-input: 6px;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 6px 16px rgba(250, 204, 21, 0.15);
+
+  /* Fontes */
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 /* Reset básico */
@@ -39,75 +44,76 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Container Principal */
+/* Estrutura Principal */
 #root, app-root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Cabeçalho / Barra de Navegação */
+/* Cabeçalho */
 header, .navbar {
-  background-color: var(--primary);
-  color: #ffffff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 2rem;
 }
 
 header h1, .navbar-title {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-/* Conteúdo Principal */
+/* Container de Conteúdo */
 main, .container {
   flex: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
 }
 
-/* Estilização de Títulos */
+/* Tipografia */
 h1, h2, h3, h4 {
   color: var(--text-heading);
   font-weight: 600;
-  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: 2.25rem; margin-bottom: 1rem; }
-h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
-h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+h1 { font-size: 2rem; margin-bottom: 1rem; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; border-left: 4px solid var(--primary); padding-left: 0.5rem; }
+h3 { font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--primary); }
 
-/* Estilo dos Cards Brancos */
+/* Cards Limpos */
 .card, article, section.card-item {
   background-color: var(--bg-card);
   border-radius: var(--radius-card);
   border: 1px solid var(--border-color);
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
 }
 
-/* Botões com o Azul Angular */
+/* Botões */
 button, .btn {
   background-color: var(--primary);
-  color: #ffffff;
+  color: var(--btn-text);
   border: none;
   border-radius: var(--radius-btn);
-  padding: 0.6rem 1.25rem;
-  font-size: 0.95rem;
-  font-weight: 500;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.15s ease, transform 0.1s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -122,37 +128,103 @@ button:active, .btn:active {
   transform: scale(0.98);
 }
 
+/* Seção de Contato e Formulários */
+.contato {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-heading);
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-input);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Alertas e Avisos */
+.aviso {
+  margin-top: 0.75rem;
+  color: var(--primary);
+  background-color: rgba(250, 204, 21, 0.1);
+  border: 1px solid var(--primary);
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 /* Elementos de Código */
 code {
   font-family: var(--font-mono);
-  background-color: #eef2f7;
+  background-color: #27272a;
   color: var(--primary);
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.4rem;
   border-radius: 4px;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  border: 1px solid var(--border-color);
 }
 
-/* Rodapé Cinza */
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Rodapé */
 footer {
   background-color: var(--footer-bg);
   color: var(--text-muted);
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.25rem 1rem;
   margin-top: auto;
   border-top: 1px solid var(--border-color);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
-/* Ajustes Responsivos */
+/* Responsividade */
 @media (max-width: 768px) {
   main, .container {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
   }
   
   h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.4rem; }
+  h2 { font-size: 1.25rem; }
   
   .card {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 }
