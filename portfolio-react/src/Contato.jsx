@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 // Contato: o formulario de contato do Portfolio.
-// O que a pessoa digita fica no estado: uma variavel que o React lembra e vigia
+// O que a pessoa digita fica no estado: uma variavel que o React lembra e vigia.
 function Contato() {
   const [nome, setNome] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [aviso, setAviso] = useState('');
 
-  // enviar: roda quando o formulario e enviado. Por enquanto so avisa e limpa
+  // enviar: roda quando o formulario e enviado. Por enquanto so avisa e limpa.
   function enviar(e) {
     e.preventDefault();
     setAviso('Obrigado, ' + nome + '! Mensagem com ' + mensagem.length + ' caracteres enviada.');

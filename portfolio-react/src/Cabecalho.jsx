@@ -1,12 +1,14 @@
-// Cabecalho: barra superior com o nome do desenvolvedor e navegação.
+import { Link } from 'react-router-dom';
+
+// Cabecalho: a barra de topo do Portfolio, com o nome e os links.
+// Um componente e uma funcao que devolve JSX. O nome comeca com maiuscula.
 function Cabecalho() {
   return (
     <header>
-      <h1>Portfólio de Felipe Borges</h1>
+      <h1>Meu Portfólio</h1>
       <nav>
-        <a href="#inicio">Início</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
+        <Link to="/">Início</Link>
+        <Link to="/gestao">Gestão</Link>
       </nav>
     </header>
   );

@@ -168,7 +168,7 @@ textarea {
   resize: vertical;
 }
 
-/* Alertas e Avisos */
+/* Alertas, Avisos e Erros */
 .aviso {
   margin-top: 0.75rem;
   color: var(--primary);
@@ -178,6 +178,16 @@ textarea {
   border-radius: var(--radius-btn);
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+.erro {
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+/* Catálogo */
+.catalogo {
+  margin-top: 32px;
 }
 
 /* Elementos de Código */
